@@ -405,6 +405,8 @@ exit();
 
                         </div>
 
+                        
+
                         <!-- add comment -->
                         <form action='include/comment.inc.php' method='POST'>
                         <div class='sm:px-4 sm:py-3 p-2.5 border-t border-gray-100 flex items-center gap-1 dark:border-slate-700/40'>
