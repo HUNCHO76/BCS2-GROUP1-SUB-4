@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['userid'])){
     header("location: http://localhost/web/the-social/form-login.php");
-exit();
+
 }
 ?>
 <!DOCTYPE html>
@@ -276,9 +276,29 @@ exit();
                         </div>
                         <?php
                              // <!-- tab user basic info -->
+                             function timeAgo($created_at) {
+                                $created = new DateTime($created_at);
+                                $now = new DateTime();
+                                $interval = $created->diff($now);
+                            
+                                if ($interval->y > 0) {
+                                    return $interval->y == 1 ? "a year ago" : "{$interval->y} years ago";
+                                } elseif ($interval->m > 0) {
+                                    return $interval->m == 1 ? "a month ago" : "{$interval->m} months ago";
+                                } elseif ($interval->d > 0) {
+                                    return $interval->d == 1 ? "yesterday" : "{$interval->d} days ago";
+                                } elseif ($interval->h > 0) {
+                                    return $interval->h == 1 ? "an hour ago" : "{$interval->h} hours ago";
+                                } elseif ($interval->i > 0) {
+                                    return $interval->i == 1 ? "a minute ago" : "{$interval->i} minutes ago";
+                                } else {
+                                    return $interval->s <= 5 ? "just now" : "{$interval->s} seconds ago";
+                                }
+                            }
 
                              $usrid = $_SESSION['userid'];
-                             $query = "SELECT status. *, `users`.`user_id`,`users`.`username`, TIMESTAMPDIFF(HOUR, `status`.`created_at`, NOW()) AS `time_post` FROM `status` JOIN `users` ON `status`.`userId` = `users`.`user_id` WHERE `users`.`user_id` = $usrid ORDER BY `status`.`created_at` DESC";
+                             $userquery =  "SELECT `users`.`profile_picture` FROM `users` WHERE `user_id` = $usrid";
+                             $query = "SELECT `status`.*, `comments`.*, `users`.`user_id` AS `status_user_id`, `users`.`username` AS `status_username`, `users`.`profile_picture` AS `status_profile_picture`, `comment_users`.`user_id` AS `comment_user_id`, `comment_users`.`username` AS `comment_username`, `comment_users`.`profile_picture` AS `comment_profile_picture`, TIMESTAMPDIFF(HOUR, `status`.`created_at`, NOW()) AS `time_post`, COUNT(`comments`.`comment_id`) AS `total_comments` FROM `status` JOIN `users` ON `status`.`userId` = `users`.`user_id` LEFT JOIN `comments` ON `comments`.`postId` = `status`.`post_id` LEFT JOIN `users` AS `comment_users` ON `comments`.`userId` = `comment_users`.`user_id` GROUP BY `status`.`post_id` ORDER BY `status`.`created_at` DESC";
 
                              $select_user = mysqli_query($conn, $query);
 
@@ -286,37 +306,28 @@ exit();
                                  die("Query failed: " . mysqli_error($conn));
                              }
 
+                             $select_profile = mysqli_query($conn, $userquery);
+                             while ($user = mysqli_fetch_assoc($select_profile)) {
+                                 $profile = $user['profile_picture'];
+                             
                              $rows = mysqli_fetch_all($select_user, MYSQLI_ASSOC); // Fetch all rows as an associative array
-
                              foreach ($rows as $row) {
+                                $post_id = $row['post_id'];
                                  $caption = $row['caption'];
-                                 $username = $row['username'];
+                                 $comment = $row['comment'];
+                                 $total_comments = $row['total_comments'];
+                                 $comment_profile = $row['comment_profile_picture'];
+                                 $username = $row['status_username'];
                                  $created_at = $row['created_at'];
-                                 $profile_picture = $row['image_path'];
+                                 $picture = $row['image_path'];
+                                 $profile_picture = $row['status_profile_picture'];
+                                 $comment_name = $row['comment_username'];
+                                 $time_ago = timeAgo($created_at); 
 
                                      // Convert created_at to DateTime object
-                            $created_at = new DateTime($created_at);
-                            
-                            // Get current time
-                            $now = new DateTime();
 
-                            // Get the interval between now and created_at
-                            $interval = $created_at->diff($now);
-
-                            // Display in hours, minutes, or other formats based on the difference
-                            if ($interval->y > 0) {
-                                $time_ago = $interval->y . " year(s) ago";
-                            } elseif ($interval->m > 0) {
-                                $time_ago = $interval->m . " month(s) ago";
-                            } elseif ($interval->d > 0) {
-                                $time_ago = $interval->d . " day(s) ago";
-                            } elseif ($interval->h > 0) {
-                                $time_ago = $interval->h . " hour(s) ago";
-                            } elseif ($interval->i > 0) {
-                                $time_ago = $interval->i . " minute(s) ago";
-                            } else {
-                                $time_ago = $interval->s . " second(s) ago";
-                            }
+                                    
+                                    
        
                         echo"
                         <!--  post image-->
@@ -324,10 +335,10 @@ exit();
 
                         <!-- post heading -->
                         <div class='flex gap-3 sm:p-4 p-2.5 text-sm font-medium'>
-                            <a href='timeline.html'> <img src='assets/images/avatars/avatar-3.jpg' alt='' class='w-9 h-9 rounded-full'> </a>  
+                            <a href='timeline.html'> <img src='$profile_picture' alt='' class='w-9 h-9 rounded-full'> </a>  
                             <div class='flex-1'>
                                 <a href='timeline.html'> <h4 class='text-black dark:text-white'> $username </h4> </a>  
-                                <div class='text-xs text-gray-500 dark:text-white/80'>  $time_ago</div>
+                                <div class='text-xs text-gray-500 dark:text-white/80'>  {$time_ago}</div>
                             </div>
 
                             <div class='-mr-1'>
@@ -348,7 +359,7 @@ exit();
                         <!-- post image -->
                         <a href='#preview_modal' uk-toggle>
                             <div class='relative w-full lg:h-96 h-full sm:px-4'>
-                                <img src='include/story-img/$profile_picture' alt='' class='sm:rounded-lg w-full h-full object-cover'>
+                                <img src=" .(!$picture  == null ? "include/story-img/$picture " : 'assets/images/post/post-1.jpg') ." alt='' class='sm:rounded-lg w-full h-full object-cover'>
                             </div>
                         </a>
 
@@ -375,7 +386,7 @@ exit();
                             </div>
                             <div class='flex items-center gap-3'>
                                 <button type='button' class='button-icon bg-slate-200/70 dark:bg-slate-700'> <ion-icon class='text-lg' name='chatbubble-ellipses'></ion-icon> </button>
-                                <span>260</span>
+                                <span>$total_comments</span>
                             </div>
                             <button type='button' class='button-icon ml-auto'> <ion-icon class='text-xl' name='paper-plane-outline'></ion-icon> </button>
                             <button type='button' class='button-icon'> <ion-icon class='text-xl' name='share-outline'></ion-icon> </button>
@@ -385,17 +396,10 @@ exit();
                         <div class='sm:p-4 p-2.5 border-t border-gray-100 font-normal space-y-3 relative dark:border-slate-700/40'> 
                         
                             <div class='flex items-start gap-3 relative'>
-                                <a href='timeline.html'> <img src='assets/images/avatars/avatar-2.jpg' alt='' class='w-6 h-6 mt-1 rounded-full'> </a>
+                                <a href='timeline.html'> <img src=" .(!$comment_profile  == null ? "$comment_profile" : 'assets/images/post/post-1.jpg') ." alt='' class='w-6 h-6 mt-1 rounded-full'> </a>
                                 <div class='flex-1'>
-                                    <a href='timeline.html' class='text-black font-medium inline-block dark:text-white'> Steeve </a>
-                                    <p class='mt-0.5'>What a beautiful photo! I love it. 😍 </p>
-                                </div>
-                            </div>
-                            <div class='flex items-start gap-3 relative'>
-                                <a href='timeline.html'> <img src='assets/images/avatars/avatar-3.jpg' alt='' class='w-6 h-6 mt-1 rounded-full'> </a>
-                                <div class='flex-1'>
-                                    <a href='timeline.html' class='text-black font-medium inline-block dark:text-white'> Monroe </a>
-                                    <p class='mt-0.5'>   You captured the moment.😎 </p>
+                                    <a href='timeline.html' class='text-black font-medium inline-block dark:text-white'>  $comment_name </a>
+                                    <p class='mt-0.5'>$comment</p>
                                 </div>
                             </div>
 
@@ -406,13 +410,13 @@ exit();
 
                         </div>
 
-                        
+
 
                         <!-- add comment -->
-                        <form action='include/comment.inc.php' method='POST'>
+                        <form action='include/comment.inc.php?id=$usrid&post=$post_id' method='POST'>
                         <div class='sm:px-4 sm:py-3 p-2.5 border-t border-gray-100 flex items-center gap-1 dark:border-slate-700/40'>
                             
-                            <img src='assets/images/avatars/avatar-7.jpg' alt='' class='w-6 h-6 rounded-full'>
+                            <img src='$profile' alt='' class='w-6 h-6 rounded-full'>
                             <div class='flex-1 relative overflow-hidden h-10'>
                                 <textarea name='comment' placeholder='Add Comment....' rows='1' class='w-full resize-none !bg-transparent px-4 py-2 focus:!border-transparent focus:!ring-transparent'></textarea>
 
@@ -438,6 +442,7 @@ exit();
                         </div>";
 
               } 
+            }
 
                 ?>
 
