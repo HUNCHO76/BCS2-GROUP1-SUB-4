@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2025 at 03:00 PM
+-- Generation Time: Jan 16, 2025 at 08:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -124,7 +124,8 @@ INSERT INTO `users` (`user_id`, `username`, `first_name`, `last_name`, `email`, 
 (1, 'buddah', 'buddah', 'buddah', 'buddah@gmail.com', '$2y$10$1T8foEQSMs2mGTxZFl41Nulxl8/32ZciGIuvkXiFRnRlR83gKaE1u', 'let\'s chat\r\n', 'male', 4, 'img/image_1.jpg', '2025-01-02 09:13:17'),
 (2, NULL, 'macha', 'macha', 'macha@gmail.com', '$2y$10$DdDtd3ACWtZYVoU0mxvu7Oz.MYu/Px.2eY0Tr1C3hfdAF5pNDrN.q', NULL, NULL, NULL, NULL, '2025-01-02 10:15:09'),
 (3, '', 'test', 'test', 'test@test.com', '$2y$10$NHHBVHaXXsZD/8Dh5BDvGOAhIsQ9mVNAKN4dO9mnHKKIeNSrEk4Ua', '', 'male', 0, 'img/image_3.jpg', '2025-01-13 10:32:15'),
-(4, 'lab', 'haji', 'haji', 'haji@gmail.com', '$2y$10$swAy3MhenIEQ6Uk8ZxAHru4muVWLbNr9TdjBGQ43i66E.IXbbCDeq', '', 'male', 3, 'img/image_4.jpg', '2025-01-13 12:18:45');
+(4, 'lab', 'haji', 'haji', 'haji@gmail.com', '$2y$10$swAy3MhenIEQ6Uk8ZxAHru4muVWLbNr9TdjBGQ43i66E.IXbbCDeq', '', 'male', 3, 'img/image_4.jpg', '2025-01-13 12:18:45'),
+(5, 'mkumbo', 'Elia', 'Mkumbo', 'mkumboelia@gmail.com', '$2y$10$MWGezGpc2LKhbdlMI7ihbudVDiOnHyHIrkDKCnO6P8RYbbLNYSvQu', '', 'male', 0, 'img/image_5.jpeg', '2025-01-15 19:31:04');
 
 --
 -- Indexes for dumped tables
@@ -164,10 +165,10 @@ ALTER TABLE `stories`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `first_name` (`first_name`),
   ADD UNIQUE KEY `last_name` (`last_name`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -189,19 +190,19 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `status`
 --
 ALTER TABLE `status`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `story_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `story_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
