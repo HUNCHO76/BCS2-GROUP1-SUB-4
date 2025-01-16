@@ -7,10 +7,11 @@ if (!isset($_SESSION['userid'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
@@ -19,43 +20,48 @@ if (!isset($_SESSION['userid'])){
     <!-- title and description-->
     <title>Socialite</title>
     <meta name="description" content="Socialite - Social sharing network HTML Template">
-   
+
     <!-- css files -->
     <link rel="stylesheet" href="assets/css/tailwind.css">
-    <link rel="stylesheet" href="assets/css/style.css">  
-    
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <!-- google font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
- 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
     <div id="wrapper">
 
         <!-- header -->
-        <header class="z-[100] h-[--m-top] fixed top-0 left-0 w-full flex items-center bg-white/80 sky-50 backdrop-blur-xl border-b border-slate-200 dark:bg-dark2 dark:border-slate-800">
+        <header
+            class="z-[100] h-[--m-top] fixed top-0 left-0 w-full flex items-center bg-white/80 sky-50 backdrop-blur-xl border-b border-slate-200 dark:bg-dark2 dark:border-slate-800">
 
             <div class="flex items-center w-full xl:px-6 px-2 max-lg:gap-10">
 
                 <div class="2xl:w-[--w-side] lg:w-[--w-side-sm]">
 
                     <!-- left -->
-                    <div class="flex items-center gap-1"> 
+                    <div class="flex items-center gap-1">
 
                         <!-- icon menu -->
                         <button uk-toggle="target: #site__sidebar ; cls :!-translate-x-0"
-                                class="flex items-center justify-center w-8 h-8 text-xl rounded-full hover:bg-gray-100 xl:hidden dark:hover:bg-slate-600 group"> 
-                                <ion-icon name="menu-outline" class="text-2xl group-aria-expanded:hidden"></ion-icon>
-                                <ion-icon name="close-outline" class="hidden text-2xl group-aria-expanded:block"></ion-icon>
+                            class="flex items-center justify-center w-8 h-8 text-xl rounded-full hover:bg-gray-100 xl:hidden dark:hover:bg-slate-600 group">
+                            <ion-icon name="menu-outline" class="text-2xl group-aria-expanded:hidden"></ion-icon>
+                            <ion-icon name="close-outline" class="hidden text-2xl group-aria-expanded:block"></ion-icon>
                         </button>
                         <div id="logo">
-                            <a href="feed.html"> 
+                            <a href="feed.html">
                                 <img src="assets/images/logo.png" alt="" class="w-28 md:block hidden dark:!hidden">
                                 <img src="assets/images/logo-light.png" alt="" class="dark:md:block hidden">
-                                <img src="assets/images/logo-mobile.png" class="hidden max-md:block w-20 dark:!hidden" alt="">
-                                <img src="assets/images/logo-mobile-light.png" class="hidden dark:max-md:block w-20" alt="">
+                                <img src="assets/images/logo-mobile.png" class="hidden max-md:block w-20 dark:!hidden"
+                                    alt="">
+                                <img src="assets/images/logo-mobile-light.png" class="hidden dark:max-md:block w-20"
+                                    alt="">
                             </a>
                         </div>
-                         
+
                     </div>
 
                 </div>
@@ -64,9 +70,10 @@ if (!isset($_SESSION['userid'])){
                     <div class="max-w-[1220px] mx-auto flex items-center">
 
                         <!-- header icons -->
-                        <div class="flex items-center sm:gap-4 gap-2 absolute right-5 top-1/2 -translate-y-1/2 text-black">
-        
-                        <?php    
+                        <div
+                            class="flex items-center sm:gap-4 gap-2 absolute right-5 top-1/2 -translate-y-1/2 text-black">
+
+                            <?php    
                                     // <!-- tab user basic info -->
                             require 'include/db.inc.php';
 
@@ -126,44 +133,49 @@ if (!isset($_SESSION['userid'])){
                             ?>
 
                             <div class="flex items-center gap-2 hidden">
-                                <img src="assets/images/avatars/avatar-2.jpg" alt="" class="w-9 h-9 rounded-full shadow">
-        
+                                <img src="assets/images/avatars/avatar-2.jpg" alt=""
+                                    class="w-9 h-9 rounded-full shadow">
+
                                 <div class="w-20 font-semibold text-gray-600"> Hamse </div>
-        
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                </svg> 
-        
-                            </div> 
-        
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+
+                            </div>
+
                         </div>
 
-                    </div> 
+                    </div>
 
                 </div>
 
             </div>
 
         </header>
-    
+
         <!-- sidebar -->
-        <div id="site__sidebar" class="fixed top-0 left-0 z-[99] pt-[--m-top] overflow-hidden transition-transform xl:duration-500 max-xl:w-full max-xl:-translate-x-full">
+        <div id="site__sidebar"
+            class="fixed top-0 left-0 z-[99] pt-[--m-top] overflow-hidden transition-transform xl:duration-500 max-xl:w-full max-xl:-translate-x-full">
 
             <!-- sidebar inner -->
-            <div class="p-2 max-xl:bg-white shadow-sm 2xl:w-72 sm:w-64 w-[80%] h-[calc(100vh-64px)] relative z-30 max-lg:border-r dark:max-xl:!bg-slate-700 dark:border-slate-700">
-        
+            <div
+                class="p-2 max-xl:bg-white shadow-sm 2xl:w-72 sm:w-64 w-[80%] h-[calc(100vh-64px)] relative z-30 max-lg:border-r dark:max-xl:!bg-slate-700 dark:border-slate-700">
+
                 <div class="pr-4" data-simplebar>
 
                     <nav id="side">
-                    
+
                         <ul>
                             <li class="active">
                                 <a href="feed.php">
                                     <img src="assets/images/icons/home.png" alt="feeds" class="w-6">
-                                    <span> Feed </span> 
+                                    <span> Feed </span>
                                 </a>
                             </li>
-                    </ul>
+                        </ul>
                     </nav>
 
                 </div>
@@ -171,17 +183,18 @@ if (!isset($_SESSION['userid'])){
             </div>
 
             <!-- sidebar overly -->
-            <div id="site__sidebar__overly" 
+            <div id="site__sidebar__overly"
                 class="absolute top-0 left-0 z-20 w-screen h-screen xl:hidden backdrop-blur-sm"
-                uk-toggle="target: #site__sidebar ; cls :!-translate-x-0"> 
+                uk-toggle="target: #site__sidebar ; cls :!-translate-x-0">
             </div>
         </div>
 
         <!-- main contents -->
-        <main id="site__main" class="2xl:ml-[--w-side]  xl:ml-[--w-side-sm] p-2.5 h-[calc(100vh-var(--m-top))] mt-[--m-top]">
+        <main id="site__main"
+            class="2xl:ml-[--w-side]  xl:ml-[--w-side-sm] p-2.5 h-[calc(100vh-var(--m-top))] mt-[--m-top]">
 
             <!-- timeline -->
-            <div class="lg:flex 2xl:gap-16 gap-12 max-w-[1065px] mx-auto"  id="js-oversized">
+            <div class="lg:flex 2xl:gap-16 gap-12 max-w-[1065px] mx-auto" id="js-oversized">
 
                 <div class="max-w-[680px] mx-auto">
 
@@ -191,13 +204,14 @@ if (!isset($_SESSION['userid'])){
                         <h3 class="font-extrabold text-2xl  text-black dark:text-white hidden"> Stories</h3>
 
                         <div class="relative" tabindex="-1" uk-slider="auto play: true;finite: true" uk-lightbox="">
-        
+
                             <div class="py-5 uk-slider-container">
-                            
-                                <ul class="uk-slider-items w-[calc(100%+14px)]" uk-scrollspy="target: > li; cls: uk-animation-scale-up; delay: 20;repeat:true">
+
+                                <ul class="uk-slider-items w-[calc(100%+14px)]"
+                                    uk-scrollspy="target: > li; cls: uk-animation-scale-up; delay: 20;repeat:true">
                                     <li class="md:pr-3" uk-scrollspy-class="uk-animation-fade">
                                         <div class="md:w-16 md:h-16 w-12 h-12 rounded-full relative border-2 border-dashed grid place-items-center bg-slate-200 border-slate-300 dark:border-slate-700 dark:bg-dark2 shrink-0"
-                                             uk-toggle="target: #create-story">
+                                            uk-toggle="target: #create-story">
                                             <ion-icon name="camera" class="text-2xl"></ion-icon>
                                         </div>
                                     </li>
@@ -234,12 +248,20 @@ if (!isset($_SESSION['userid'])){
 
 
                                 </ul>
-                        
+
                             </div>
-                        
+
                             <div class="max-md:hidden">
-                                <button type="button" class="absolute -translate-y-1/2 bg-white shadow rounded-full top-1/2 -left-3.5 grid w-8 h-8 place-items-center dark:bg-dark3" uk-slider-item="previous"> <ion-icon name="chevron-back" class="text-2xl"></ion-icon></button>
-                                <button type="button" class="absolute -right-2 -translate-y-1/2 bg-white shadow rounded-full top-1/2 grid w-8 h-8 place-items-center dark:bg-dark3" uk-slider-item="next"> <ion-icon name="chevron-forward" class="text-2xl"></ion-icon> </button>
+                                <button type="button"
+                                    class="absolute -translate-y-1/2 bg-white shadow rounded-full top-1/2 -left-3.5 grid w-8 h-8 place-items-center dark:bg-dark3"
+                                    uk-slider-item="previous">
+                                    <ion-icon name="chevron-back" class="text-2xl"></ion-icon>
+                                </button>
+                                <button type="button"
+                                    class="absolute -right-2 -translate-y-1/2 bg-white shadow rounded-full top-1/2 grid w-8 h-8 place-items-center dark:bg-dark3"
+                                    uk-slider-item="next">
+                                    <ion-icon name="chevron-forward" class="text-2xl"></ion-icon>
+                                </button>
                             </div>
                         </div>
 
@@ -249,30 +271,42 @@ if (!isset($_SESSION['userid'])){
                     <div class="md:max-w-[580px] mx-auto flex-1 xl:space-y-6 space-y-3">
 
                         <!-- add story -->
-                        <div class="bg-white rounded-xl shadow-sm md:p-4 p-2 space-y-4 text-sm font-medium border1 dark:bg-dark2">
+                        <div
+                            class="bg-white rounded-xl shadow-sm md:p-4 p-2 space-y-4 text-sm font-medium border1 dark:bg-dark2">
 
                             <div class="flex items-center md:gap-3 gap-1">
-                                <div class="flex-1 bg-slate-100 hover:bg-opacity-80 transition-all rounded-lg cursor-pointer dark:bg-dark3" uk-toggle="target: #create-status"> 
+                                <div class="flex-1 bg-slate-100 hover:bg-opacity-80 transition-all rounded-lg cursor-pointer dark:bg-dark3"
+                                    uk-toggle="target: #create-status">
                                     <div class="py-2.5 text-center dark:text-white"> What do you have in mind? </div>
                                 </div>
-                                <div class="cursor-pointer hover:bg-opacity-80 p-1 px-1.5 rounded-xl transition-all bg-pink-100/60 hover:bg-pink-100 dark:bg-white/10 dark:hover:bg-white/20" uk-toggle="target: #create-status">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 stroke-pink-600 fill-pink-200/70" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <div class="cursor-pointer hover:bg-opacity-80 p-1 px-1.5 rounded-xl transition-all bg-pink-100/60 hover:bg-pink-100 dark:bg-white/10 dark:hover:bg-white/20"
+                                    uk-toggle="target: #create-status">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-8 h-8 stroke-pink-600 fill-pink-200/70" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M15 8h.01" />
                                         <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
                                         <path d="M3.5 15.5l4.5 -4.5c.928 -.893 2.072 -.893 3 0l5 5" />
                                         <path d="M14 14l1 -1c.928 -.893 2.072 -.893 3 0l2.5 2.5" />
                                     </svg>
                                 </div>
-                                <div class="cursor-pointer hover:bg-opacity-80 p-1 px-1.5 rounded-xl transition-all bg-sky-100/60 hover:bg-sky-100 dark:bg-white/10 dark:hover:bg-white/20" uk-toggle="target: #create-status">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 stroke-sky-600 fill-sky-200/70 " viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z" />
-                                        <path d="M3 6m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
+                                <div class="cursor-pointer hover:bg-opacity-80 p-1 px-1.5 rounded-xl transition-all bg-sky-100/60 hover:bg-sky-100 dark:bg-white/10 dark:hover:bg-white/20"
+                                    uk-toggle="target: #create-status">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-8 h-8 stroke-sky-600 fill-sky-200/70 " viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path
+                                            d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z" />
+                                        <path
+                                            d="M3 6m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
                                     </svg>
-                                </div> 
+                                </div>
                             </div>
-                            
+
                         </div>
                         <?php
                              // <!-- tab user basic info -->
@@ -448,7 +482,8 @@ if (!isset($_SESSION['userid'])){
 
 
                         <!-- placeholder -->
-                        <div class="rounded-xl shadow-sm p-4 space-y-4 bg-slate-200/40 animate-pulse border1 dark:bg-dark2">
+                        <div
+                            class="rounded-xl shadow-sm p-4 space-y-4 bg-slate-200/40 animate-pulse border1 dark:bg-dark2">
 
                             <div class="flex gap-3">
                                 <div class="w-9 h-9 rounded-full bg-slate-300/20"></div>
@@ -478,228 +513,294 @@ if (!isset($_SESSION['userid'])){
                 </div>
 
                 <!-- sidebar -->
-                <div class="flex-1"> 
-                    
-                    <div class="lg:space-y-4 lg:pb-8 max-lg:grid sm:grid-cols-2 max-lg:gap-6" 
-                    uk-sticky="media: 1024; end: #js-oversized; offset: 80">
+                <div class="flex-1">
 
-                    <div class="box p-5 px-6">
-        
-                        <div class="flex items-baseline justify-between text-black dark:text-white">
-                            <h3 class="font-bold text-base"> People you may know </h3>
-                            <a href="#" class="text-sm text-blue-500">See all</a>
+                    <div class="lg:space-y-4 lg:pb-8 max-lg:grid sm:grid-cols-2 max-lg:gap-6"
+                        uk-sticky="media: 1024; end: #js-oversized; offset: 80">
+
+                        <div class="box p-5 px-6">
+
+                            <div class="flex items-baseline justify-between text-black dark:text-white">
+                                <h3 class="font-bold text-base"> People you may know </h3>
+                                <a href="#" class="text-sm text-blue-500">See all</a>
+                            </div>
+
+                            <div class="side-list">
+
+                                <div class="side-list-item">
+                                    <a href="timeline.html">
+                                        <img src="assets/images/avatars/avatar-2.jpg" alt=""
+                                            class="side-list-image rounded-full">
+                                    </a>
+                                    <div class="flex-1">
+                                        <a href="timeline.html">
+                                            <h4 class="side-list-title"> John Michael </h4>
+                                        </a>
+                                        <div class="side-list-info"> 125k Following </div>
+                                    </div>
+                                    <button class="button bg-primary-soft text-primary dark:text-white">follow</button>
+                                </div>
+
+                                <div class="side-list-item">
+                                    <a href="timeline.html">
+                                        <img src="assets/images/avatars/avatar-3.jpg" alt=""
+                                            class="side-list-image rounded-full">
+                                    </a>
+                                    <div class="flex-1">
+                                        <a href="timeline.html">
+                                            <h4 class="side-list-title"> Monroe Parker </h4>
+                                        </a>
+                                        <div class="side-list-info"> 320k Following </div>
+                                    </div>
+                                    <button class="button bg-primary-soft text-primary dark:text-white">follow</button>
+                                </div>
+
+                                <div class="side-list-item">
+                                    <a href="timeline.html">
+                                        <img src="assets/images/avatars/avatar-5.jpg" alt=""
+                                            class="side-list-image rounded-full">
+                                    </a>
+                                    <div class="flex-1">
+                                        <a href="timeline.html">
+                                            <h4 class="side-list-title"> James Lewis</h4>
+                                        </a>
+                                        <div class="side-list-info"> 125k Following </div>
+                                    </div>
+                                    <button class="button bg-primary-soft text-primary dark:text-white">follow</button>
+                                </div>
+
+                                <div class="side-list-item">
+                                    <a href="timeline.html">
+                                        <img src="assets/images/avatars/avatar-6.jpg" alt=""
+                                            class="side-list-image rounded-full">
+                                    </a>
+                                    <div class="flex-1">
+                                        <a href="timeline.html">
+                                            <h4 class="side-list-title"> Alexa stella </h4>
+                                        </a>
+                                        <div class="side-list-info"> 192k Following </div>
+                                    </div>
+                                    <button class="button bg-primary-soft text-primary dark:text-white">follow</button>
+                                </div>
+
+                                <div class="side-list-item">
+                                    <a href="timeline.html">
+                                        <img src="assets/images/avatars/avatar-2.jpg" alt=""
+                                            class="side-list-image rounded-full">
+                                    </a>
+                                    <div class="flex-1">
+                                        <a href="timeline.html">
+                                            <h4 class="side-list-title"> John Michael </h4>
+                                        </a>
+                                        <div class="side-list-info"> 320k Following </div>
+                                    </div>
+                                    <button class="button bg-primary-soft text-primary dark:text-white">follow</button>
+                                </div>
+
+                                <button class="bg-secondery button w-full mt-2 hidden">See all</button>
+
+                            </div>
+
                         </div>
 
-                        <div class="side-list">
+                        <!-- peaple you might know -->
+                        <div class="box p-5 px-6 border1 dark:bg-dark2 hidden">
 
-                            <div class="side-list-item">
-                                <a href="timeline.html">
-                                    <img src="assets/images/avatars/avatar-2.jpg" alt="" class="side-list-image rounded-full">
-                                </a>
-                                <div class="flex-1">
-                                    <a href="timeline.html"><h4 class="side-list-title">  John Michael </h4></a>
-                                    <div class="side-list-info"> 125k Following </div>
-                                </div>
-                                <button class="button bg-primary-soft text-primary dark:text-white">follow</button>
+                            <div class="flex justify-between text-black dark:text-white">
+                                <h3 class="font-bold text-base"> Peaple You might know </h3>
+                                <button type="button">
+                                    <ion-icon name="sync-outline" class="text-xl"></ion-icon>
+                                </button>
                             </div>
 
-                            <div class="side-list-item">
-                                <a href="timeline.html">
-                                    <img src="assets/images/avatars/avatar-3.jpg" alt="" class="side-list-image rounded-full">
-                                </a>
-                                <div class="flex-1">
-                                    <a href="timeline.html"><h4 class="side-list-title"> Monroe Parker </h4></a>
-                                    <div class="side-list-info"> 320k Following </div>
+                            <div
+                                class="space-y-4 capitalize text-xs font-normal mt-5 mb-2 text-gray-500 dark:text-white/80">
+
+                                <div class="flex items-center gap-3">
+                                    <a href="timeline.html">
+                                        <img src="assets/images/avatars/avatar-7.jpg" alt=""
+                                            class="bg-gray-200 rounded-full w-10 h-10">
+                                    </a>
+                                    <div class="flex-1">
+                                        <a href="timeline.html">
+                                            <h4 class="font-semibold text-sm text-black dark:text-white"> Johnson smith
+                                            </h4>
+                                        </a>
+                                        <div class="mt-0.5"> Suggested For You </div>
+                                    </div>
+                                    <button type="button"
+                                        class="text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery"> Follow
+                                    </button>
                                 </div>
-                                <button class="button bg-primary-soft text-primary dark:text-white">follow</button>
-                            </div>  
-                            
-                            <div class="side-list-item">
-                                <a href="timeline.html">
-                                    <img src="assets/images/avatars/avatar-5.jpg" alt="" class="side-list-image rounded-full">
-                                </a>
-                                <div class="flex-1">
-                                    <a href="timeline.html"><h4 class="side-list-title"> James Lewis</h4></a>
-                                    <div class="side-list-info"> 125k Following </div>
+                                <div class="flex items-center gap-3">
+                                    <a href="timeline.html">
+                                        <img src="assets/images/avatars/avatar-5.jpg" alt=""
+                                            class="bg-gray-200 rounded-full w-10 h-10">
+                                    </a>
+                                    <div class="flex-1">
+                                        <a href="timeline.html">
+                                            <h4 class="font-semibold text-sm text-black dark:text-white"> James Lewis
+                                            </h4>
+                                        </a>
+                                        <div class="mt-0.5"> Followed by Johnson </div>
+                                    </div>
+                                    <button type="button"
+                                        class="text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery"> Follow
+                                    </button>
                                 </div>
-                                <button class="button bg-primary-soft text-primary dark:text-white">follow</button>
-                            </div>
-                            
-                            <div class="side-list-item">
-                                <a href="timeline.html">
-                                    <img src="assets/images/avatars/avatar-6.jpg" alt="" class="side-list-image rounded-full">
-                                </a>
-                                <div class="flex-1">
-                                    <a href="timeline.html"><h4 class="side-list-title">  Alexa stella </h4></a>
-                                    <div class="side-list-info"> 192k Following </div>
+                                <div class="flex items-center gap-3">
+                                    <a href="timeline.html">
+                                        <img src="assets/images/avatars/avatar-2.jpg" alt=""
+                                            class="bg-gray-200 rounded-full w-10 h-10">
+                                    </a>
+                                    <div class="flex-1">
+                                        <a href="timeline.html">
+                                            <h4 class="font-semibold text-sm text-black dark:text-white"> John Michael
+                                            </h4>
+                                        </a>
+                                        <div class="mt-0.5"> Followed by Monroe </div>
+                                    </div>
+                                    <button type="button"
+                                        class="text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery"> Follow
+                                    </button>
                                 </div>
-                                <button class="button bg-primary-soft text-primary dark:text-white">follow</button>
+                                <div class="flex items-center gap-3">
+                                    <a href="timeline.html">
+                                        <img src="assets/images/avatars/avatar-3.jpg" alt=""
+                                            class="bg-gray-200 rounded-full w-10 h-10">
+                                    </a>
+                                    <div class="flex-1">
+                                        <a href="timeline.html">
+                                            <h4 class="font-semibold text-sm text-black dark:text-white"> Monroe Parker
+                                            </h4>
+                                        </a>
+                                        <div class="mt-0.5"> Suggested For You </div>
+                                    </div>
+                                    <button type="button"
+                                        class="text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery"> Follow
+                                    </button>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <a href="timeline.html">
+                                        <img src="assets/images/avatars/avatar-4.jpg" alt=""
+                                            class="bg-gray-200 rounded-full w-10 h-10">
+                                    </a>
+                                    <div class="flex-1">
+                                        <a href="timeline.html">
+                                            <h4 class="font-semibold text-sm text-black dark:text-white"> Martin Gray
+                                            </h4>
+                                        </a>
+                                        <div class="mt-0.5"> Suggested For You </div>
+                                    </div>
+                                    <button type="button"
+                                        class="text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery"> Follow
+                                    </button>
+                                </div>
                             </div>
 
-                            <div class="side-list-item">
-                                <a href="timeline.html">
-                                    <img src="assets/images/avatars/avatar-2.jpg" alt="" class="side-list-image rounded-full">
+                        </div>
+
+                        <!-- Trends -->
+                        <div class="box p-5 px-6 border1 dark:bg-dark2">
+
+                            <div class="flex justify-between text-black dark:text-white">
+                                <h3 class="font-bold text-base"> Trends for you </h3>
+                                <button type="button">
+                                    <ion-icon name="sync-outline" class="text-xl"></ion-icon>
+                                </button>
+                            </div>
+
+                            <div
+                                class="space-y-3.5 capitalize text-xs font-normal mt-5 mb-2 text-gray-600 dark:text-white/80">
+                                <a href="#">
+                                    <div class="flex items-center gap-3 p">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 -mt-2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
+                                        </svg>
+                                        <div class="flex-1">
+                                            <h4 class="font-semibold text-black dark:text-white text-sm"> artificial
+                                                intelligence </h4>
+                                            <div class="mt-0.5"> 1,245,62 post </div>
+                                        </div>
+                                    </div>
                                 </a>
-                                <div class="flex-1">
-                                    <a href="timeline.html"><h4 class="side-list-title"> John Michael </h4></a>
-                                    <div class="side-list-info"> 320k Following </div>
-                                </div>
-                                <button class="button bg-primary-soft text-primary dark:text-white">follow</button>
-                            </div>  
-                            
-                            <button class="bg-secondery button w-full mt-2 hidden">See all</button>
+                                <a href="#" class="block">
+                                    <div class="flex items-center gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 -mt-2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
+                                        </svg>
+                                        <div class="flex-1">
+                                            <h4 class="font-semibold text-black dark:text-white text-sm"> Web developers
+                                            </h4>
+                                            <div class="mt-0.5"> 1,624 post </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="block">
+                                    <div class="flex items-center gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 -mt-2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
+                                        </svg>
+                                        <div class="flex-1">
+                                            <h4 class="font-semibold text-black dark:text-white text-sm"> Ui Designers
+                                            </h4>
+                                            <div class="mt-0.5"> 820 post </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="block">
+                                    <div class="flex items-center gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 -mt-2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
+                                        </svg>
+                                        <div class="flex-1">
+                                            <h4 class="font-semibold text-black dark:text-white text-sm"> affiliate
+                                                marketing </h4>
+                                            <div class="mt-0.5"> 480 post </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
 
                         </div>
 
                     </div>
-
-                    <!-- peaple you might know -->
-                    <div class="box p-5 px-6 border1 dark:bg-dark2 hidden">
-                                    
-                        <div class="flex justify-between text-black dark:text-white">
-                            <h3 class="font-bold text-base"> Peaple You might know </h3>
-                            <button type="button"> <ion-icon name="sync-outline" class="text-xl"></ion-icon> </button>
-                        </div>
-
-                        <div class="space-y-4 capitalize text-xs font-normal mt-5 mb-2 text-gray-500 dark:text-white/80">
-
-                            <div class="flex items-center gap-3">
-                                <a href="timeline.html">
-                                    <img src="assets/images/avatars/avatar-7.jpg" alt="" class="bg-gray-200 rounded-full w-10 h-10">
-                                </a>
-                                <div class="flex-1">
-                                    <a href="timeline.html"><h4 class="font-semibold text-sm text-black dark:text-white">  Johnson smith</h4></a>
-                                    <div class="mt-0.5"> Suggested For You </div>
-                                </div>
-                                <button type="button" class="text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery"> Follow </button>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <a href="timeline.html">
-                                    <img src="assets/images/avatars/avatar-5.jpg" alt="" class="bg-gray-200 rounded-full w-10 h-10">
-                                </a>
-                                <div class="flex-1">
-                                    <a href="timeline.html"><h4 class="font-semibold text-sm text-black dark:text-white"> James Lewis</h4></a>
-                                    <div class="mt-0.5"> Followed by Johnson </div>
-                                </div>
-                                <button type="button" class="text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery"> Follow </button>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <a href="timeline.html">
-                                    <img src="assets/images/avatars/avatar-2.jpg" alt="" class="bg-gray-200 rounded-full w-10 h-10">
-                                </a>
-                                <div class="flex-1">
-                                    <a href="timeline.html"><h4 class="font-semibold text-sm text-black dark:text-white"> John Michael</h4></a>
-                                    <div class="mt-0.5"> Followed by Monroe  </div>
-                                </div>
-                                <button type="button" class="text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery"> Follow </button>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <a href="timeline.html">
-                                    <img src="assets/images/avatars/avatar-3.jpg" alt="" class="bg-gray-200 rounded-full w-10 h-10">
-                                </a>
-                                <div class="flex-1">
-                                    <a href="timeline.html"><h4 class="font-semibold text-sm text-black dark:text-white">  Monroe Parker</h4></a>
-                                    <div class="mt-0.5"> Suggested For You </div>
-                                </div>
-                                <button type="button" class="text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery"> Follow </button>
-                            </div> 
-                            <div class="flex items-center gap-3">
-                                <a href="timeline.html">
-                                    <img src="assets/images/avatars/avatar-4.jpg" alt="" class="bg-gray-200 rounded-full w-10 h-10">
-                                </a>
-                                <div class="flex-1">
-                                    <a href="timeline.html"><h4 class="font-semibold text-sm text-black dark:text-white">  Martin Gray</h4></a>
-                                    <div class="mt-0.5"> Suggested For You </div>
-                                </div>
-                                <button type="button" class="text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery"> Follow </button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Trends -->
-                    <div class="box p-5 px-6 border1 dark:bg-dark2">
-                        
-                        <div class="flex justify-between text-black dark:text-white">
-                            <h3 class="font-bold text-base"> Trends for you </h3>
-                            <button type="button"> <ion-icon name="sync-outline" class="text-xl"></ion-icon> </button>
-                        </div>
-
-                        <div class="space-y-3.5 capitalize text-xs font-normal mt-5 mb-2 text-gray-600 dark:text-white/80">
-                            <a href="#">
-                                <div class="flex items-center gap-3 p"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 -mt-2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
-                                    </svg>
-                                    <div class="flex-1">
-                                        <h4 class="font-semibold text-black dark:text-white text-sm">  artificial intelligence </h4>
-                                        <div class="mt-0.5"> 1,245,62 post </div>
-                                    </div> 
-                                </div>
-                            </a>
-                            <a href="#" class="block">
-                                <div class="flex items-center gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 -mt-2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
-                                    </svg>
-                                    <div class="flex-1">
-                                        <h4 class="font-semibold text-black dark:text-white text-sm">  Web developers</h4>
-                                        <div class="mt-0.5"> 1,624 post </div>
-                                    </div> 
-                                </div>
-                            </a>
-                            <a href="#" class="block">
-                                <div class="flex items-center gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 -mt-2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
-                                    </svg>
-                                    <div class="flex-1">
-                                        <h4 class="font-semibold text-black dark:text-white text-sm">  Ui Designers</h4>
-                                        <div class="mt-0.5"> 820 post </div>
-                                    </div> 
-                                </div>
-                            </a>
-                            <a href="#" class="block">
-                                <div class="flex items-center gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 -mt-2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
-                                    </svg>
-                                    <div class="flex-1">
-                                        <h4 class="font-semibold text-black dark:text-white text-sm"> affiliate marketing </h4>
-                                        <div class="mt-0.5"> 480 post </div>
-                                    </div> 
-                                </div>
-                            </a>
-                        </div>
-
-                        
-                    </div>
-
                 </div>
-                </div>
-                
+
             </div>
-            
+
         </main>
 
     </div>
 
-    
-    <!-- post preview modal --> 
+
+    <!-- post preview modal -->
     <div class="hidden lg:p-20 max-lg:!items-start" id="preview_modal" uk-modal="">
-        
-        <div class="uk-modal-dialog tt relative mx-auto overflow-hidden shadow-xl rounded-lg lg:flex items-center ax-w-[86rem] w-full lg:h-[80vh]">
-          
+
+        <div
+            class="uk-modal-dialog tt relative mx-auto overflow-hidden shadow-xl rounded-lg lg:flex items-center ax-w-[86rem] w-full lg:h-[80vh]">
+
             <!-- image previewer -->
             <div class="lg:h-full lg:w-[calc(100vw-400px)] w-full h-96 flex justify-center items-center relative">
-                
+
                 <div class="relative z-10 w-full h-full">
                     <img src="assets/images/post/post-1.jpg" alt="" class="w-full h-full object-cover absolute">
                 </div>
-  
+
                 <!-- close button -->
-                <button type="button"  class="bg-white rounded-full p-2 absolute right-0 top-0 m-3 uk-animation-slide-right-medium z-10 dark:bg-slate-600 uk-modal-close">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <button type="button"
+                    class="bg-white rounded-full p-2 absolute right-0 top-0 m-3 uk-animation-slide-right-medium z-10 dark:bg-slate-600 uk-modal-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
@@ -707,8 +808,9 @@ if (!isset($_SESSION['userid'])){
             </div>
 
             <!-- right sidebar -->
-            <div class="lg:w-[400px] w-full bg-white h-full relative  overflow-y-auto shadow-xl dark:bg-dark2 flex flex-col justify-between">
-                
+            <div
+                class="lg:w-[400px] w-full bg-white h-full relative  overflow-y-auto shadow-xl dark:bg-dark2 flex flex-col justify-between">
+
                 <div class="p-5 pb-0">
 
                     <!-- story heading -->
@@ -718,37 +820,64 @@ if (!isset($_SESSION['userid'])){
                             <h4 class="text-black font-medium dark:text-white"> Steeve </h4>
                             <div class="text-gray-500 text-xs dark:text-white/80"> 2 hours ago</div>
                         </div>
- 
+
                         <!-- dropdown -->
                         <div class="-m-1">
-                            <button type="button" class="button__ico w-8 h-8"> <ion-icon class="text-xl" name="ellipsis-horizontal"></ion-icon> </button>
-                            <div  class="w-[253px]" uk-dropdown="pos: bottom-right; animation: uk-animation-scale-up uk-transform-origin-top-right; animate-out: true"> 
-                                <nav> 
-                                    <a href="#"> <ion-icon class="text-xl shrink-0" name="bookmark-outline"></ion-icon>  Add to favorites </a>  
-                                    <a href="#"> <ion-icon class="text-xl shrink-0" name="notifications-off-outline"></ion-icon> Mute Notification </a>  
-                                    <a href="#"> <ion-icon class="text-xl shrink-0" name="flag-outline"></ion-icon>  Report this post </a>  
-                                    <a href="#"> <ion-icon class="text-xl shrink-0" name="share-outline"></ion-icon>  Share your profile </a>  
+                            <button type="button" class="button__ico w-8 h-8">
+                                <ion-icon class="text-xl" name="ellipsis-horizontal"></ion-icon>
+                            </button>
+                            <div class="w-[253px]"
+                                uk-dropdown="pos: bottom-right; animation: uk-animation-scale-up uk-transform-origin-top-right; animate-out: true">
+                                <nav>
+                                    <a href="#">
+                                        <ion-icon class="text-xl shrink-0" name="bookmark-outline"></ion-icon> Add to
+                                        favorites
+                                    </a>
+                                    <a href="#">
+                                        <ion-icon class="text-xl shrink-0" name="notifications-off-outline"></ion-icon>
+                                        Mute Notification
+                                    </a>
+                                    <a href="#">
+                                        <ion-icon class="text-xl shrink-0" name="flag-outline"></ion-icon> Report this
+                                        post
+                                    </a>
+                                    <a href="#">
+                                        <ion-icon class="text-xl shrink-0" name="share-outline"></ion-icon> Share your
+                                        profile
+                                    </a>
                                     <hr>
-                                    <a href="#" class="text-red-400 hover:!bg-red-50 dark:hover:!bg-red-500/50"> <ion-icon class="text-xl shrink-0" name="stop-circle-outline"></ion-icon>  Unfollow </a>  
+                                    <a href="#" class="text-red-400 hover:!bg-red-50 dark:hover:!bg-red-500/50">
+                                        <ion-icon class="text-xl shrink-0" name="stop-circle-outline"></ion-icon>
+                                        Unfollow
+                                    </a>
                                 </nav>
                             </div>
                         </div>
                     </div>
 
-                    <p class="font-normal text-sm leading-6 mt-4"> Photography is the art of capturing light with a camera.  it can be fun, challenging. It can also be a hobby, a passion. 📷 </p>
+                    <p class="font-normal text-sm leading-6 mt-4"> Photography is the art of capturing light with a
+                        camera. it can be fun, challenging. It can also be a hobby, a passion. 📷 </p>
 
                     <div class="shadow relative -mx-5 px-5 py-3 mt-3">
                         <div class="flex items-center gap-4 text-xs font-semibold">
                             <div class="flex items-center gap-2.5">
-                                <button type="button" class="button__ico text-red-500 bg-red-100 dark:bg-slate-700"> <ion-icon class="text-lg" name="heart"></ion-icon> </button>
+                                <button type="button" class="button__ico text-red-500 bg-red-100 dark:bg-slate-700">
+                                    <ion-icon class="text-lg" name="heart"></ion-icon>
+                                </button>
                                 <a href="#">1,300</a>
                             </div>
                             <div class="flex items-center gap-3">
-                                <button type="button" class="button__ico bg-slate-100 dark:bg-slate-700"> <ion-icon class="text-lg" name="chatbubble-ellipses"></ion-icon> </button>
+                                <button type="button" class="button__ico bg-slate-100 dark:bg-slate-700">
+                                    <ion-icon class="text-lg" name="chatbubble-ellipses"></ion-icon>
+                                </button>
                                 <span>260</span>
                             </div>
-                            <button type="button" class="button__ico ml-auto"> <ion-icon class="text-xl" name="share-outline"></ion-icon> </button>
-                            <button type="button" class="button__ico"> <ion-icon class="text-xl" name="bookmark-outline"></ion-icon> </button>
+                            <button type="button" class="button__ico ml-auto">
+                                <ion-icon class="text-xl" name="share-outline"></ion-icon>
+                            </button>
+                            <button type="button" class="button__ico">
+                                <ion-icon class="text-xl" name="bookmark-outline"></ion-icon>
+                            </button>
                         </div>
                     </div>
 
@@ -757,8 +886,8 @@ if (!isset($_SESSION['userid'])){
                 <div class="p-5 h-full overflow-y-auto flex-1">
 
                     <!-- comment list -->
-                    <div class="relative text-sm font-medium space-y-5"> 
-                
+                    <div class="relative text-sm font-medium space-y-5">
+
                         <div class="flex items-start gap-3 relative">
                             <img src="assets/images/avatars/avatar-2.jpg" alt="" class="w-6 h-6 mt-1 rounded-full">
                             <div class="flex-1">
@@ -770,20 +899,20 @@ if (!isset($_SESSION['userid'])){
                             <img src="assets/images/avatars/avatar-3.jpg" alt="" class="w-6 h-6 mt-1 rounded-full">
                             <div class="flex-1">
                                 <a href="#" class="text-black font-medium inline-block dark:text-white"> Monroe </a>
-                                <p class="mt-0.5">   You captured the moment.😎 </p>
+                                <p class="mt-0.5"> You captured the moment.😎 </p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3 relative">
                             <img src="assets/images/avatars/avatar-7.jpg" alt="" class="w-6 h-6 mt-1 rounded-full">
                             <div class="flex-1">
                                 <a href="#" class="text-black font-medium inline-block dark:text-white"> Alexa </a>
-                                <p class="mt-0.5"> This photo is amazing!   </p>
+                                <p class="mt-0.5"> This photo is amazing! </p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3 relative">
                             <img src="assets/images/avatars/avatar-4.jpg" alt="" class="w-6 h-6 mt-1 rounded-full">
                             <div class="flex-1">
-                                <a href="#" class="text-black font-medium inline-block dark:text-white"> John  </a>
+                                <a href="#" class="text-black font-medium inline-block dark:text-white"> John </a>
                                 <p class="mt-0.5"> Wow, You are so talented 😍 </p>
                             </div>
                         </div>
@@ -791,21 +920,21 @@ if (!isset($_SESSION['userid'])){
                             <img src="assets/images/avatars/avatar-5.jpg" alt="" class="w-6 h-6 mt-1 rounded-full">
                             <div class="flex-1">
                                 <a href="#" class="text-black font-medium inline-block dark:text-white"> Michael </a>
-                                <p class="mt-0.5"> I love taking photos   🌳🐶</p>
+                                <p class="mt-0.5"> I love taking photos 🌳🐶</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3 relative">
                             <img src="assets/images/avatars/avatar-3.jpg" alt="" class="w-6 h-6 mt-1 rounded-full">
                             <div class="flex-1">
                                 <a href="#" class="text-black font-medium inline-block dark:text-white"> Monroe </a>
-                                <p class="mt-0.5">  Awesome. 😊😢 </p>
+                                <p class="mt-0.5"> Awesome. 😊😢 </p>
                             </div>
-                        </div> 
+                        </div>
                         <div class="flex items-start gap-3 relative">
                             <img src="assets/images/avatars/avatar-5.jpg" alt="" class="w-6 h-6 mt-1 rounded-full">
                             <div class="flex-1">
                                 <a href="#" class="text-black font-medium inline-block dark:text-white"> Jesse </a>
-                                <p class="mt-0.5"> Well done 🎨📸   </p>
+                                <p class="mt-0.5"> Well done 🎨📸 </p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3 relative">
@@ -814,18 +943,18 @@ if (!isset($_SESSION['userid'])){
                                 <a href="#" class="text-black font-medium inline-block dark:text-white"> Steeve </a>
                                 <p class="mt-0.5">What a beautiful, I love it. 😍 </p>
                             </div>
-                        </div> 
+                        </div>
                         <div class="flex items-start gap-3 relative">
                             <img src="assets/images/avatars/avatar-7.jpg" alt="" class="w-6 h-6 mt-1 rounded-full">
                             <div class="flex-1">
                                 <a href="#" class="text-black font-medium inline-block dark:text-white"> Alexa </a>
-                                <p class="mt-0.5"> This photo is amazing!   </p>
+                                <p class="mt-0.5"> This photo is amazing! </p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3 relative">
                             <img src="assets/images/avatars/avatar-4.jpg" alt="" class="w-6 h-6 mt-1 rounded-full">
                             <div class="flex-1">
-                                <a href="#" class="text-black font-medium inline-block dark:text-white"> John  </a>
+                                <a href="#" class="text-black font-medium inline-block dark:text-white"> John </a>
                                 <p class="mt-0.5"> Wow, You are so talented 😍 </p>
                             </div>
                         </div>
@@ -833,194 +962,228 @@ if (!isset($_SESSION['userid'])){
                             <img src="assets/images/avatars/avatar-5.jpg" alt="" class="w-6 h-6 mt-1 rounded-full">
                             <div class="flex-1">
                                 <a href="#" class="text-black font-medium inline-block dark:text-white"> Michael </a>
-                                <p class="mt-0.5"> I love taking photos   🌳🐶</p>
+                                <p class="mt-0.5"> I love taking photos 🌳🐶</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3 relative">
                             <img src="assets/images/avatars/avatar-3.jpg" alt="" class="w-6 h-6 mt-1 rounded-full">
                             <div class="flex-1">
                                 <a href="#" class="text-black font-medium inline-block dark:text-white"> Monroe </a>
-                                <p class="mt-0.5">  Awesome. 😊😢 </p>
+                                <p class="mt-0.5"> Awesome. 😊😢 </p>
                             </div>
-                        </div>  
-                         
+                        </div>
+
                     </div>
 
                 </div>
 
                 <div class="bg-white p-3 text-sm font-medium flex items-center gap-2">
-                                
+
                     <img src="assets/images/avatars/avatar-2.jpg" alt="" class="w-6 h-6 rounded-full">
-                    
+
                     <div class="flex-1 relative overflow-hidden ">
-                        <textarea placeholder="Add Comment...." rows="1" class="w-full resize-  px-4 py-2 focus:!border-transparent focus:!ring-transparent resize-y"></textarea>
+                        <textarea placeholder="Add Comment...." rows="1"
+                            class="w-full resize-  px-4 py-2 focus:!border-transparent focus:!ring-transparent resize-y"></textarea>
 
                         <div class="flex items-center gap-2 absolute bottom-0.5 right-0 m-3">
-                            <ion-icon class="text-xl flex text-blue-700" name="image"></ion-icon> 
-                            <ion-icon class="text-xl flex text-yellow-500" name="happy"></ion-icon> 
+                            <ion-icon class="text-xl flex text-blue-700" name="image"></ion-icon>
+                            <ion-icon class="text-xl flex text-yellow-500" name="happy"></ion-icon>
                         </div>
 
                     </div>
 
-                    <button type="submit" class="hidden text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery">Replay</button>
-                
+                    <button type="submit"
+                        class="hidden text-sm rounded-full py-1.5 px-4 font-semibold bg-secondery">Replay</button>
+
                 </div>
 
             </div>
-   
+
         </div>
-        
+
     </div>
 
     <!-- create status -->
- 
+
     <div class="hidden lg:p-20 uk- open" id="create-status" uk-modal="">
-        <div class="uk-modal-dialog tt relative overflow-hidden mx-auto bg-white shadow-xl rounded-lg md:w-[520px] w-full dark:bg-dark2">
-                 <form action="include/story.inc.php" method="POST" enctype="multipart/form-data">
-                        <div class="text-center py-4 border-b mb-0 dark:border-slate-700">
-                            <h2 class="text-sm font-medium text-black"> Create Status </h2>
+        <div
+            class="uk-modal-dialog tt relative overflow-hidden mx-auto bg-white shadow-xl rounded-lg md:w-[520px] w-full dark:bg-dark2">
+            <form action="include/story.inc.php" method="POST" enctype="multipart/form-data">
+                <div class="text-center py-4 border-b mb-0 dark:border-slate-700">
+                    <h2 class="text-sm font-medium text-black"> Create Status </h2>
 
-                            <!-- close button -->
-                            <button type="button" class="button-icon absolute top-0 right-0 m-2.5 uk-modal-close">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                            
-                        </div>
-                        
-                        <div class="space-y-5 mt-3 p-2">
-                            <textarea class="w-full !text-black placeholder:!text-black !bg-white !border-transparent focus:!border-transparent focus:!ring-transparent !font-normal !text-xl   dark:!text-white dark:placeholder:!text-white dark:!bg-slate-800" name="caption" id=""  rows="6" placeholder="What do you have in mind?"></textarea>
-                        </div>
-                        
-                        <div class="flex items-center gap-2 text-sm py-2 px-4 font-medium flex-wrap">
-                            <button type="file" class="flex items-center gap-1.5 bg-sky-50 text-sky-600 rounded-full py-1 px-2 border-2 border-sky-100 dark:bg-sky-950 dark:border-sky-900">  
-                                <input type="file" name="story-image" id="" class="w-24">
-                                <ion-icon name="image" class="text-base"></ion-icon>  
-                                Image 
-                        
-                            </button>
-                            <button type="button" class="flex items-center gap-1.5 bg-teal-50 text-teal-600 rounded-full py-1 px-2 border-2 border-teal-100 dark:bg-teal-950 dark:border-teal-900">  
-                                <ion-icon name="videocam" class="text-base"></ion-icon>  
-                                Video 
-                            </button>
-                            <button type="button" class="flex items-center gap-1.5 bg-orange-50 text-orange-600 rounded-full py-1 px-2 border-2 border-orange-100 dark:bg-yellow-950 dark:border-yellow-900">  
-                                <ion-icon name="happy" class="text-base"></ion-icon>  
-                                Feeling
-                            </button>
-                            <button type="button" class="flex items-center gap-1.5 bg-red-50 text-red-600 rounded-full py-1 px-2 border-2 border-rose-100 dark:bg-rose-950 dark:border-rose-900">  
-                                <ion-icon name="location" class="text-base"></ion-icon>  
-                                Check in 
-                            </button>
-                            <button type="button" class="grid place-items-center w-8 h-8 text-xl rounded-full bg-secondery">  
-                                <ion-icon name="ellipsis-horizontal"></ion-icon>
-                            </button>
-                        </div>
-            
-                        <div class="p-5 flex justify-between items-center">
-                            <div>
-                                <button class="inline-flex items-center py-1 px-2.5 gap-1 font-medium text-sm rounded-full bg-slate-50 border-2 border-slate-100 group aria-expanded:bg-slate-100 aria-expanded: dark:text-white dark:bg-slate-700 dark:border-slate-600" type="button"> 
-                                    Everyone
-                                    <ion-icon name="chevron-down-outline" class="text-base duration-500 group-aria-expanded:rotate-180"></ion-icon> 
-                                </button>
+                    <!-- close button -->
+                    <button type="button" class="button-icon absolute top-0 right-0 m-2.5 uk-modal-close">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
 
-                                <div  class="p-2 bg-white rounded-lg shadow-lg text-black font-medium border border-slate-100 w-60 dark:bg-slate-700"
-                                    uk-drop="offset:10;pos: bottom-left; reveal-left;animate-out: true; animation: uk-animation-scale-up uk-transform-origin-bottom-left ; mode:click">
-                                        
-                                    
-                                        <label>
-                                            <input type="radio" name="radio-status" id="monthly1" class="peer appearance-none hidden" checked />
-                                            <div class=" relative flex items-center justify-between cursor-pointer rounded-md p-2 px-3 hover:bg-secondery peer-checked:[&_.active]:block dark:bg-dark3">
-                                                <div class="text-sm">  Everyone </div> 
-                                                <ion-icon name="checkmark-circle" class="hidden active absolute -translate-y-1/2 right-2 text-2xl text-blue-600 uk-animation-scale-up"></ion-icon>
-                                            </div>
-                                        </label>
-                                        <label>
-                                            <input type="radio" name="radio-status" id="monthly1" class="peer appearance-none hidden" />
-                                            <div class=" relative flex items-center justify-between cursor-pointer rounded-md p-2 px-3 hover:bg-secondery peer-checked:[&_.active]:block dark:bg-dark3">
-                                                <div class="text-sm"> Friends </div> 
-                                                <ion-icon name="checkmark-circle" class="hidden active absolute -translate-y-1/2 right-2 text-2xl text-blue-600 uk-animation-scale-up"></ion-icon>
-                                            </div>
-                                        </label>
-                                        <label>
-                                            <input type="radio" name="radio-status" id="monthly" class="peer appearance-none hidden" />
-                                            <div class=" relative flex items-center justify-between cursor-pointer rounded-md p-2 px-3 hover:bg-secondery peer-checked:[&_.active]:block dark:bg-dark3">
-                                                <div class="text-sm"> Only me </div> 
-                                                <ion-icon name="checkmark-circle" class="hidden active absolute -translate-y-1/2 right-2 text-2xl text-blue-600 uk-animation-scale-up"></ion-icon>
-                                            </div>
-                                        </label>
-                                
-
-                                </div>
-                            </div>
-                          
-                            <div class="flex items-center gap-2"> 
-                                <button type="submit" name="btn-submt" class="button bg-blue-500 text-white py-2 px-12 text-[14px]"> Create
-
-                                </button>
-                            </div>
-                        </div>
-                        
-                    </form>
-                    </div>
-                    
                 </div>
-       
 
-   
-        <!-- create story -->
-     
+                <div class="space-y-5 mt-3 p-2">
+                    <textarea
+                        class="w-full !text-black placeholder:!text-black !bg-white !border-transparent focus:!border-transparent focus:!ring-transparent !font-normal !text-xl   dark:!text-white dark:placeholder:!text-white dark:!bg-slate-800"
+                        name="caption" id="" rows="6" placeholder="What do you have in mind?"></textarea>
+                </div>
+
+                <div class="flex items-center gap-2 text-sm py-2 px-4 font-medium flex-wrap">
+                    <button type="file"
+                        class="flex items-center gap-1.5 bg-sky-50 text-sky-600 rounded-full py-1 px-2 border-2 border-sky-100 dark:bg-sky-950 dark:border-sky-900">
+                        <input type="file" name="story-image" id="" class="w-24">
+                        <ion-icon name="image" class="text-base"></ion-icon>
+                        Image
+
+                    </button>
+                    <button type="button"
+                        class="flex items-center gap-1.5 bg-teal-50 text-teal-600 rounded-full py-1 px-2 border-2 border-teal-100 dark:bg-teal-950 dark:border-teal-900">
+                        <ion-icon name="videocam" class="text-base"></ion-icon>
+                        Video
+                    </button>
+                    <button type="button"
+                        class="flex items-center gap-1.5 bg-orange-50 text-orange-600 rounded-full py-1 px-2 border-2 border-orange-100 dark:bg-yellow-950 dark:border-yellow-900">
+                        <ion-icon name="happy" class="text-base"></ion-icon>
+                        Feeling
+                    </button>
+                    <button type="button"
+                        class="flex items-center gap-1.5 bg-red-50 text-red-600 rounded-full py-1 px-2 border-2 border-rose-100 dark:bg-rose-950 dark:border-rose-900">
+                        <ion-icon name="location" class="text-base"></ion-icon>
+                        Check in
+                    </button>
+                    <button type="button" class="grid place-items-center w-8 h-8 text-xl rounded-full bg-secondery">
+                        <ion-icon name="ellipsis-horizontal"></ion-icon>
+                    </button>
+                </div>
+
+                <div class="p-5 flex justify-between items-center">
+                    <div>
+                        <button
+                            class="inline-flex items-center py-1 px-2.5 gap-1 font-medium text-sm rounded-full bg-slate-50 border-2 border-slate-100 group aria-expanded:bg-slate-100 aria-expanded: dark:text-white dark:bg-slate-700 dark:border-slate-600"
+                            type="button">
+                            Everyone
+                            <ion-icon name="chevron-down-outline"
+                                class="text-base duration-500 group-aria-expanded:rotate-180"></ion-icon>
+                        </button>
+
+                        <div class="p-2 bg-white rounded-lg shadow-lg text-black font-medium border border-slate-100 w-60 dark:bg-slate-700"
+                            uk-drop="offset:10;pos: bottom-left; reveal-left;animate-out: true; animation: uk-animation-scale-up uk-transform-origin-bottom-left ; mode:click">
+
+
+                            <label>
+                                <input type="radio" name="radio-status" id="monthly1"
+                                    class="peer appearance-none hidden" checked />
+                                <div
+                                    class=" relative flex items-center justify-between cursor-pointer rounded-md p-2 px-3 hover:bg-secondery peer-checked:[&_.active]:block dark:bg-dark3">
+                                    <div class="text-sm"> Everyone </div>
+                                    <ion-icon name="checkmark-circle"
+                                        class="hidden active absolute -translate-y-1/2 right-2 text-2xl text-blue-600 uk-animation-scale-up">
+                                    </ion-icon>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio-status" id="monthly1"
+                                    class="peer appearance-none hidden" />
+                                <div
+                                    class=" relative flex items-center justify-between cursor-pointer rounded-md p-2 px-3 hover:bg-secondery peer-checked:[&_.active]:block dark:bg-dark3">
+                                    <div class="text-sm"> Friends </div>
+                                    <ion-icon name="checkmark-circle"
+                                        class="hidden active absolute -translate-y-1/2 right-2 text-2xl text-blue-600 uk-animation-scale-up">
+                                    </ion-icon>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio-status" id="monthly"
+                                    class="peer appearance-none hidden" />
+                                <div
+                                    class=" relative flex items-center justify-between cursor-pointer rounded-md p-2 px-3 hover:bg-secondery peer-checked:[&_.active]:block dark:bg-dark3">
+                                    <div class="text-sm"> Only me </div>
+                                    <ion-icon name="checkmark-circle"
+                                        class="hidden active absolute -translate-y-1/2 right-2 text-2xl text-blue-600 uk-animation-scale-up">
+                                    </ion-icon>
+                                </div>
+                            </label>
+
+
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button type="submit" name="btn-submt"
+                            class="button bg-blue-500 text-white py-2 px-12 text-[14px]"> Create
+
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+
+    <!-- create story -->
+
     <div class="hidden lg:p-20" id="create-story" uk-modal="">
-        <div class="uk-modal-dialog tt relative overflow-hidden mx-auto bg-white p-7 shadow-xl rounded-lg md:w-[520px] w-full dark:bg-dark2">
-            
+        <div
+            class="uk-modal-dialog tt relative overflow-hidden mx-auto bg-white p-7 shadow-xl rounded-lg md:w-[520px] w-full dark:bg-dark2">
+
             <div class="text-center py-3 border-b -m-7 mb-0 dark:border-slate-700">
                 <h2 class="text-sm font-medium"> Create Status </h2>
-                
+
                 <!-- close button -->
                 <button type="button" class="button__ico absolute top-0 right-0 m-2.5 uk-modal-close">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                
+
             </div>
-            
-        <form  action="include/status.php" method="POST" enctype="multipart/form-data">
+
+            <form action="include/status.php" method="POST" enctype="multipart/form-data">
                 <div class="space-y-5 mt-7">
 
-                <div> 
-                    <label for="" class="text-base">What do you have in mind? </label>
-                    <input type="text" name="caption" class="w-full mt-3">
-                </div>
-
-                <div>  
-                    <div class="w-full h-72 relative border1 rounded-lg overflow-hidden bg-[url('../images/ad_pattern.png')] bg-repeat">
-                    
-                        <label for="createStatusUrl" class="flex flex-col justify-center items-center absolute -translate-x-1/2 left-1/2 bottom-0 z-10 w-full pb-6 pt-10 cursor-pointer bg-gradient-to-t from-gray-700/60">
-                            <input id="createStatusUrl" type="file" name="status-image" class="hidden" />
-                            <ion-icon name="image" class="text-3xl text-teal-600"></ion-icon>
-                            <span class="text-white mt-2">Browse to Upload image </span>
-                        </label>
-
-                        <img id="createStatusImage" src="#" alt="Uploaded Image" accept="image/png, image/jpeg" style="display:none;" class="w-full h-full absolute object-cover">
+                    <div>
+                        <label for="" class="text-base">What do you have in mind? </label>
+                        <input type="text" name="caption" class="w-full mt-3">
                     </div>
 
-                </div>
-                
-                <div class="flex justify-between items-center">
-                    <div class="flex items-start gap-2">
-                        <ion-icon name="time-outline" class="text-3xl text-sky-600  rounded-full bg-blue-50 dark:bg-transparent"></ion-icon>
-                        <p class="text-sm text-gray-500 font-medium"> Your Status will be available <br> for <span class="text-gray-800"> 24 Hours</span> </p>
+                    <div>
+                        <div
+                            class="w-full h-72 relative border1 rounded-lg overflow-hidden bg-[url('../images/ad_pattern.png')] bg-repeat">
+
+                            <label for="createStatusUrl"
+                                class="flex flex-col justify-center items-center absolute -translate-x-1/2 left-1/2 bottom-0 z-10 w-full pb-6 pt-10 cursor-pointer bg-gradient-to-t from-gray-700/60">
+                                <input id="createStatusUrl" type="file" name="status-image" class="hidden" />
+                                <ion-icon name="image" class="text-3xl text-teal-600"></ion-icon>
+                                <span class="text-white mt-2">Browse to Upload image </span>
+                            </label>
+
+                            <img id="createStatusImage" src="#" alt="Uploaded Image" accept="image/png, image/jpeg"
+                                style="display:none;" class="w-full h-full absolute object-cover">
+                        </div>
+
                     </div>
 
-                    <button type="submit" name="submit-story" class="button bg-blue-500 text-white px-8"> Create</button>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-start gap-2">
+                            <ion-icon name="time-outline"
+                                class="text-3xl text-sky-600  rounded-full bg-blue-50 dark:bg-transparent"></ion-icon>
+                            <p class="text-sm text-gray-500 font-medium"> Your Status will be available <br> for <span
+                                    class="text-gray-800"> 24 Hours</span> </p>
+                        </div>
+
+                        <button type="submit" name="submit-story" class="button bg-blue-500 text-white px-8">
+                            Create</button>
+                    </div>
                 </div>
-            </div>
-        </form> 
+            </form>
 
         </div>
     </div>
- 
+
 
     <!-- Javascript  -->
     <script src="assets/js/uikit.min.js"></script>
@@ -1030,4 +1193,5 @@ if (!isset($_SESSION['userid'])){
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

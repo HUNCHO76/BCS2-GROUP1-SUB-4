@@ -97,6 +97,7 @@ if (isset($_POST['submit-update'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -108,44 +109,49 @@ if (isset($_POST['submit-update'])) {
     <!-- title and description-->
     <title>Socialite</title>
     <meta name="description" content="Socialite - Social sharing network HTML Template">
-   
+
     <!-- css files -->
     <link rel="stylesheet" href="assets/css/tailwind.css">
-    <link rel="stylesheet" href="assets/css/style.css">  
-    
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <!-- google font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
- 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
- 
+
     <div id="wrapper">
 
         <!-- header -->
-        <header class="z-[100] h-[--m-top] fixed top-0 left-0 w-full flex items-center bg-white/80 sky-50 backdrop-blur-xl border-b border-slate-200 dark:bg-dark2 dark:border-slate-800">
+        <header
+            class="z-[100] h-[--m-top] fixed top-0 left-0 w-full flex items-center bg-white/80 sky-50 backdrop-blur-xl border-b border-slate-200 dark:bg-dark2 dark:border-slate-800">
 
             <div class="flex items-center w-full xl:px-6 px-2 max-lg:gap-10">
 
                 <div class="2xl:w-[--w-side] lg:w-[--w-side-sm]">
 
                     <!-- left -->
-                    <div class="flex items-center gap-1"> 
+                    <div class="flex items-center gap-1">
 
                         <!-- icon menu -->
                         <button uk-toggle="target: #site__sidebar ; cls :!-translate-x-0"
-                                class="flex items-center justify-center w-8 h-8 text-xl rounded-full hover:bg-gray-100 xl:hidden dark:hover:bg-slate-600 group"> 
-                                <ion-icon name="menu-outline" class="text-2xl group-aria-expanded:hidden"></ion-icon>
-                                <ion-icon name="close-outline" class="hidden text-2xl group-aria-expanded:block"></ion-icon>
+                            class="flex items-center justify-center w-8 h-8 text-xl rounded-full hover:bg-gray-100 xl:hidden dark:hover:bg-slate-600 group">
+                            <ion-icon name="menu-outline" class="text-2xl group-aria-expanded:hidden"></ion-icon>
+                            <ion-icon name="close-outline" class="hidden text-2xl group-aria-expanded:block"></ion-icon>
                         </button>
                         <div id="logo">
-                            <a href="feed.php"> 
+                            <a href="feed.php">
                                 <img src="assets/images/logo.png" alt="" class="w-28 md:block hidden dark:!hidden">
                                 <img src="assets/images/logo-light.png" alt="" class="dark:md:block hidden">
-                                <img src="assets/images/logo-mobile.png" class="hidden max-md:block w-20 dark:!hidden" alt="">
-                                <img src="assets/images/logo-mobile-light.png" class="hidden dark:max-md:block w-20" alt="">
+                                <img src="assets/images/logo-mobile.png" class="hidden max-md:block w-20 dark:!hidden"
+                                    alt="">
+                                <img src="assets/images/logo-mobile-light.png" class="hidden dark:max-md:block w-20"
+                                    alt="">
                             </a>
                         </div>
-                         
+
                     </div>
 
                 </div>
@@ -154,10 +160,11 @@ if (isset($_POST['submit-update'])) {
                     <div class="max-w-[1220px] mx-auto flex items-center">
 
                         <!-- header icons -->
-                        <div class="flex items-center sm:gap-4 gap-2 absolute right-5 top-1/2 -translate-y-1/2 text-black">
-        
+                        <div
+                            class="flex items-center sm:gap-4 gap-2 absolute right-5 top-1/2 -translate-y-1/2 text-black">
+
                             <!-- profile -->
-                        <?php    
+                            <?php    
                                     // <!-- tab user basic info -->
               require 'include/db.inc.php';
 
@@ -215,44 +222,49 @@ if (isset($_POST['submit-update'])) {
                             ?>
 
                             <div class="flex items-center gap-2 hidden">
-                                <img src="assets/images/avatars/avatar-2.jpg" alt="" class="w-9 h-9 rounded-full shadow">
-        
+                                <img src="assets/images/avatars/avatar-2.jpg" alt=""
+                                    class="w-9 h-9 rounded-full shadow">
+
                                 <div class="w-20 font-semibold text-gray-600"> Hamse </div>
-        
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                </svg> 
-        
-                            </div> 
-        
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+
+                            </div>
+
                         </div>
 
-                    </div> 
+                    </div>
 
                 </div>
 
             </div>
 
         </header>
-    
+
         <!-- sidebar -->
-        <div id="site__sidebar" class="fixed top-0 left-0 z-[99] pt-[--m-top] overflow-hidden transition-transform xl:duration-500 max-xl:w-full max-xl:-translate-x-full">
+        <div id="site__sidebar"
+            class="fixed top-0 left-0 z-[99] pt-[--m-top] overflow-hidden transition-transform xl:duration-500 max-xl:w-full max-xl:-translate-x-full">
 
             <!-- sidebar inner -->
-            <div class="p-2 max-xl:bg-white shadow-sm 2xl:w-72 sm:w-64 w-[80%] h-[calc(100vh-64px)] relative z-30 max-lg:border-r dark:max-xl:!bg-slate-700 dark:border-slate-700">
-        
+            <div
+                class="p-2 max-xl:bg-white shadow-sm 2xl:w-72 sm:w-64 w-[80%] h-[calc(100vh-64px)] relative z-30 max-lg:border-r dark:max-xl:!bg-slate-700 dark:border-slate-700">
+
                 <div class="pr-4" data-simplebar>
 
                     <nav id="side">
-                    
+
                         <ul>
                             <li class="active">
                                 <a href="feed.html">
                                     <img src="assets/images/icons/home.png" alt="feeds" class="w-6">
-                                    <span> Feed </span> 
+                                    <span> Feed </span>
                                 </a>
                             </li>
-                    </ul>
+                        </ul>
                     </nav>
 
                 </div>
@@ -260,12 +272,12 @@ if (isset($_POST['submit-update'])) {
             </div>
 
             <!-- sidebar overly -->
-            <div id="site__sidebar__overly" 
+            <div id="site__sidebar__overly"
                 class="absolute top-0 left-0 z-20 w-screen h-screen xl:hidden backdrop-blur-sm"
-                uk-toggle="target: #site__sidebar ; cls :!-translate-x-0"> 
+                uk-toggle="target: #site__sidebar ; cls :!-translate-x-0">
             </div>
         </div>
-        
+
         <!-- main contents -->
 
         <?php
@@ -404,136 +416,138 @@ if (isset($_POST['submit-update'])) {
                         
                        
                     ?>
-    
-                        <!-- tab socialinks -->   
-                        <div>
-    
-                            <div class="max-w-md mx-auto">
-    
-                                <div class="font-normal text-gray-400">
-                                
-                                    <div>
-                                        <h4 class="text-xl font-medium text-black dark:text-white"> Social Links </h4>
-                                        <p class="mt-3 font-normal text-gray-600 dark:text-white">We may still send you important notifications about your account and content outside of you preferred notivications settings</p>
-                                    </div>
-    
-                                    <div class="space-y-6 mt-8">
-    
-                                        <div class="flex items-center gap-3">
-                                            <div class="bg-blue-50 rounded-full p-2 flex ">
-                                                <ion-icon name="logo-facebook" class="text-2xl text-blue-600"></ion-icon> 
-                                            </div>
-                                            <div class="flex-1">
-                                                <input type="text" class="w-full" placeholder="http://www.facebook.com/myname">
-                                            </div>
-                                        </div>
-                                        <div class="flex items-center gap-3">
-                                            <div class="bg-pink-50 rounded-full p-2 flex ">
-                                                <ion-icon name="logo-instagram" class="text-2xl text-pink-600"></ion-icon> 
-                                            </div>
-                                            <div class="flex-1">
-                                                <input type="text" class="w-full" placeholder="http://www.instagram.com/myname">
-                                            </div>
-                                        </div>
-                                        <div class="flex items-center gap-3">
-                                            <div class="bg-sky-50 rounded-full p-2 flex ">
-                                                <ion-icon name="logo-twitter" class="text-2xl text-sky-600"></ion-icon> 
-                                            </div>
-                                            <div class="flex-1">
-                                                <input type="text" class="w-full" placeholder="http://www.twitter.com/myname">
-                                            </div>
-                                        </div>
-                                        <div class="flex items-center gap-3">
-                                            <div class="bg-red-50 rounded-full p-2 flex ">
-                                                <ion-icon name="logo-youtube" class="text-2xl text-red-600"></ion-icon> 
-                                            </div>
-                                            <div class="flex-1">
-                                                <input type="text" class="w-full" placeholder="http://www.youtube.com/myname">
-                                            </div>
-                                        </div>
-                                        <div class="flex items-center gap-3">
-                                            <div class="bg-slate-50 rounded-full p-2 flex ">
-                                                <ion-icon name="logo-github" class="text-2xl text-black"></ion-icon> 
-                                            </div>
-                                            <div class="flex-1">
-                                                <input type="text" class="w-full" placeholder="http://www.github.com/myname">
-                                            </div>
-                                        </div>
-    
-                                    </div> 
-                                   
-                                </div> 
-                                
-                                <div class="flex items-center justify-center gap-4 mt-16">
-                                    <button type="submit" class="button lg:px-6 bg-secondery max-md:flex-1"> Cancle</button>
-                                    <button type="submit" class="button lg:px-10 bg-primary text-white max-md:flex-1"> Save</button>
-                                </div>
-    
+
+        <!-- tab socialinks -->
+        <div>
+
+            <div class="max-w-md mx-auto">
+
+                <div class="font-normal text-gray-400">
+
+                    <div>
+                        <h4 class="text-xl font-medium text-black dark:text-white"> Social Links </h4>
+                        <p class="mt-3 font-normal text-gray-600 dark:text-white">We may still send you important
+                            notifications about your account and content outside of you preferred notivications settings
+                        </p>
+                    </div>
+
+                    <div class="space-y-6 mt-8">
+
+                        <div class="flex items-center gap-3">
+                            <div class="bg-blue-50 rounded-full p-2 flex ">
+                                <ion-icon name="logo-facebook" class="text-2xl text-blue-600"></ion-icon>
                             </div>
-    
+                            <div class="flex-1">
+                                <input type="text" class="w-full" placeholder="http://www.facebook.com/myname">
+                            </div>
                         </div>
-                        
-                        <!-- tab password-->
-                        <div>
-    
-                            <div>
-                                
-                                <div class="space-y-6 max-w-lg mx-auto">
-    
-                                    <div class="md:flex items-center gap-16 justify-between max-md:space-y-3">
-                                        <label class="md:w-40 text-right"> Current Password </label>
-                                        <div class="flex-1 max-md:mt-4">
-                                            <input type="password" placeholder="******" class="w-full">
-                                        </div>
-                                    </div>
-                                  
-                                    <div class="md:flex items-center gap-16 justify-between max-md:space-y-3">
-                                        <label class="md:w-40 text-right"> New password </label>
-                                        <div class="flex-1 max-md:mt-4">
-                                            <input type="password" placeholder="******" class="w-full">
-                                        </div>
-                                    </div>
-    
-                                    <div class="md:flex items-center gap-16 justify-between max-md:space-y-3">
-                                        <label class="md:w-40 text-right"> Repeat password </label>
-                                        <div class="flex-1 max-md:mt-4">
-                                            <input type="password" placeholder="******" class="w-full">
-                                        </div>
-                                    </div>
-    
-                                    <hr class="border-gray-100 dark:border-gray-700">
-    
-                                    <div class="md:flex items-center gap-16 justify-between">
-                                        <label class="md:w-40 text-right"> Two-factor authentication </label>
-                                        <div class="flex-1 max-md:mt-4">
-                                            <select class="w-full !border-0 !rounded-md">
-                                                <option value="1">Enable</option>
-                                                <option value="2">Disable</option> 
-                                            </select>
-                                        </div>
-                                    </div>
-    
-    
-                                </div>
-                                
-                                <div class="flex items-center justify-center gap-4 mt-16">
-                                    <button type="submit" class="button lg:px-6 bg-secondery max-md:flex-1"> Cancle</button>
-                                    <button type="submit" class="button lg:px-10 bg-primary text-white max-md:flex-1"> Save</button>
-                                </div>
-    
+                        <div class="flex items-center gap-3">
+                            <div class="bg-pink-50 rounded-full p-2 flex ">
+                                <ion-icon name="logo-instagram" class="text-2xl text-pink-600"></ion-icon>
                             </div>
-                            
+                            <div class="flex-1">
+                                <input type="text" class="w-full" placeholder="http://www.instagram.com/myname">
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="bg-sky-50 rounded-full p-2 flex ">
+                                <ion-icon name="logo-twitter" class="text-2xl text-sky-600"></ion-icon>
+                            </div>
+                            <div class="flex-1">
+                                <input type="text" class="w-full" placeholder="http://www.twitter.com/myname">
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="bg-red-50 rounded-full p-2 flex ">
+                                <ion-icon name="logo-youtube" class="text-2xl text-red-600"></ion-icon>
+                            </div>
+                            <div class="flex-1">
+                                <input type="text" class="w-full" placeholder="http://www.youtube.com/myname">
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="bg-slate-50 rounded-full p-2 flex ">
+                                <ion-icon name="logo-github" class="text-2xl text-black"></ion-icon>
+                            </div>
+                            <div class="flex-1">
+                                <input type="text" class="w-full" placeholder="http://www.github.com/myname">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="flex items-center justify-center gap-4 mt-16">
+                    <button type="submit" class="button lg:px-6 bg-secondery max-md:flex-1"> Cancle</button>
+                    <button type="submit" class="button lg:px-10 bg-primary text-white max-md:flex-1"> Save</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- tab password-->
+        <div>
+
+            <div>
+
+                <div class="space-y-6 max-w-lg mx-auto">
+
+                    <div class="md:flex items-center gap-16 justify-between max-md:space-y-3">
+                        <label class="md:w-40 text-right"> Current Password </label>
+                        <div class="flex-1 max-md:mt-4">
+                            <input type="password" placeholder="******" class="w-full">
                         </div>
                     </div>
-                    
-                
+
+                    <div class="md:flex items-center gap-16 justify-between max-md:space-y-3">
+                        <label class="md:w-40 text-right"> New password </label>
+                        <div class="flex-1 max-md:mt-4">
+                            <input type="password" placeholder="******" class="w-full">
+                        </div>
+                    </div>
+
+                    <div class="md:flex items-center gap-16 justify-between max-md:space-y-3">
+                        <label class="md:w-40 text-right"> Repeat password </label>
+                        <div class="flex-1 max-md:mt-4">
+                            <input type="password" placeholder="******" class="w-full">
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100 dark:border-gray-700">
+
+                    <div class="md:flex items-center gap-16 justify-between">
+                        <label class="md:w-40 text-right"> Two-factor authentication </label>
+                        <div class="flex-1 max-md:mt-4">
+                            <select class="w-full !border-0 !rounded-md">
+                                <option value="1">Enable</option>
+                                <option value="2">Disable</option>
+                            </select>
+                        </div>
+                    </div>
+
+
                 </div>
-    
-                
+
+                <div class="flex items-center justify-center gap-4 mt-16">
+                    <button type="submit" class="button lg:px-6 bg-secondery max-md:flex-1"> Cancle</button>
+                    <button type="submit" class="button lg:px-10 bg-primary text-white max-md:flex-1"> Save</button>
+                </div>
+
             </div>
-            
-        </form>
-        </main>
+
+        </div>
+    </div>
+
+
+    </div>
+
+
+    </div>
+
+    </form>
+    </main>
 
     </div>
 
@@ -543,10 +557,11 @@ if (isset($_POST['submit-update'])) {
     <script src="assets/js/uikit.min.js"></script>
     <script src="assets/js/simplebar.js"></script>
     <script src="assets/js/script.js"></script>
- 
- 
+
+
     <!-- Ion icon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
