@@ -40,7 +40,11 @@
         <!-- title -->
         <div>
           <h2 class="text-2xl font-semibold mb-1.5"> Sign up to get started </h2>
-          <p class="text-sm text-gray-700 font-normal">If you already have an account, <a href="form-login.php" class="text-blue-700">Login here!</a></p>
+          <p class="text-sm text-gray-700 font-normal">If you already have an account, <a href="form-login.php" class="text-blue-700">Login here!</a></p>  
+          <?php 
+          // $error = $_GET['error'];
+          // echo "<p>username taken</p>";
+          ?>
         </div>
  
 

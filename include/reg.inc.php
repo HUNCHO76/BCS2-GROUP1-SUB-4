@@ -22,11 +22,11 @@
         exit();
 
     }
-    elseif(!preg_match("/^[a-zA-Z0-9]*$/", $firstname)){
+    elseif(!preg_match("/^[a-zA-Z]*$/", $firstname)){
         header("location: ../form-register.php?error=char". $fistname);
         exit();
     }
-    elseif(!preg_match("/^[a-zA-Z0-9]*$/", $lastname))
+    elseif(!preg_match("/^[a-zA-Z]*$/", $lastname))
     {
         header("location: ../form-register.php?error=char". $lastname);
         exit(); 
@@ -47,7 +47,7 @@
    }
 
     else{
-        mysqli_stmt_bind_param($stmt, "s", $firstname );
+        mysqli_stmt_bind_param($stmt, "s", $firstname ); //change first_name to email 
         mysqli_stmt_execute($stmt);
         mysqli_stmt_store_result($stmt);
         $resultcheck = mysqli_stmt_num_rows($stmt);
