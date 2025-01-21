@@ -1,19 +1,21 @@
-1	Aloyce Nerey Macha	IMC/BCS/2324682
+# List of Participated Students
 
-2	Elia Mkumbo Msengi	IMC/BCS/2324910
+1.	Aloyce Nerey Macha	IMC/BCS/2324682
 
-3	Fazal Benard Mwanganya	IMC/BCS/2325746
+2.	Elia Mkumbo Msengi	IMC/BCS/2324910
 
-4	Abdulrahim Hussein Ismail	IMC/BCS/2324324
+3.	Fazal Benard Mwanganya	IMC/BCS/2325746
 
-5	Clemence S Deoglass	IMC/BCS/2326206
+4.	Abdulrahim Hussein Ismail	IMC/BCS/2324324
 
-6	Andrew Athanas Maganga	IMC/BCS/2326766
+5.	Clemence S Deoglass	IMC/BCS/2326206
 
-7	Kelvin A Rwehumbiza	IMC/BCS/2326754
+6.	Andrew Athanas Maganga	IMC/BCS/2326766
 
-8	Estomih Mahenge	IMC/BCS/2321044
+7.	Kelvin A Rwehumbiza	IMC/BCS/2326754
 
-9	Mussa Magembe	IMC/BCS/2324123
+8.	Estomih Mahenge	IMC/BCS/2321044
 
-10	Maureen Paul Moris	IMC/BCS/2314051
+9.	Mussa Magembe	IMC/BCS/2324123
+
+10.	Maureen Paul Moris	IMC/BCS/2314051
