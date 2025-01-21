@@ -48,8 +48,8 @@ if (isset($_REQUEST['btn-submt'])) {
                 // Move file to upload directory
                 if (move_uploaded_file($imageTmpName, $uploadPath)) {
                     // Insert data into the database
-                    $stmt = $conn->prepare("INSERT INTO `status` (userId, image_path, caption) VALUES (?, ?, ?)");
-                    $stmt->bind_param("sss", $id, $uniqueImageName, $statusCaption);
+                    $stmt = $conn->prepare("INSERT INTO `posts` (userId, image_path, caption) VALUES (?, ?, ?)");
+                    $stmt->bind_param("iss", $id, $uniqueImageName, $statusCaption);
 
                     if ($stmt->execute()) {
                         header('Location: ../feed.php?status=success');

@@ -16,7 +16,7 @@ if (isset($_POST['btn-comment'])) {
     }
 
     // Prepare SQL query to insert the comment
-    $sql = "INSERT INTO comments (userId, postId, comment) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO comments (userId, postId, caption) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2025 at 08:25 AM
+-- Generation Time: Jan 21, 2025 at 12:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sociallite`
+-- Database: `social_lite`
 --
 
 -- --------------------------------------------------------
@@ -28,12 +28,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `comments` (
-  `comment_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `postId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
-  `comment` text NOT NULL,
+  `caption` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `postId`, `userId`, `caption`, `created_at`) VALUES
+(1, 9, 1, 'tttt', '2025-01-20 15:11:28'),
+(2, 8, 1, 'hello', '2025-01-20 15:13:05'),
+(3, 8, 1, 'hello', '2025-01-20 15:13:30');
 
 -- --------------------------------------------------------
 
@@ -43,20 +52,6 @@ CREATE TABLE `comments` (
 
 CREATE TABLE `posts` (
   `post_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `content` text NOT NULL,
-  `image_url` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `status`
---
-
-CREATE TABLE `status` (
-  `post_id` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `caption` text DEFAULT NULL,
   `image_path` varchar(255) DEFAULT NULL,
@@ -64,14 +59,15 @@ CREATE TABLE `status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `status`
+-- Dumping data for table `posts`
 --
 
-INSERT INTO `status` (`post_id`, `userId`, `caption`, `image_path`, `created_at`) VALUES
-(1, 1, '', 'image_1_67853e248276e.jpg', '2025-01-13 16:24:04'),
-(2, 1, 'post', 'image_1_6785fe0536c4b.jpg', '2025-01-14 06:02:45'),
-(3, 1, '', 'image_1_67864af528cd0.jpg', '2025-01-14 11:31:01'),
-(4, 1, '', 'image_1_67866d636de07.jpg', '2025-01-14 13:57:55');
+INSERT INTO `posts` (`post_id`, `userId`, `caption`, `image_path`, `created_at`) VALUES
+(6, 1, '', 'image_1_678a58413ad16.jpg', '2025-01-17 13:16:49'),
+(7, 1, '', 'image_1_678e305a6cb23.jpg', '2025-01-20 11:15:38'),
+(8, 1, '', 'image_1_678e5d56ad73b.jpg', '2025-01-20 14:27:34'),
+(9, 1, '', 'image_1_678e66276cd2e.jpg', '2025-01-20 15:05:11'),
+(10, 1, '', 'image_1_678f88c0eee85.jpg', '2025-01-21 11:45:05');
 
 -- --------------------------------------------------------
 
@@ -93,8 +89,7 @@ CREATE TABLE `stories` (
 --
 
 INSERT INTO `stories` (`story_id`, `user_id`, `image_path`, `caption`, `created_at`) VALUES
-(6, 1, 'image_1_678605b7b0218.jpg', 'nice car', '2025-01-14 06:35:35'),
-(7, 1, 'image_1_67866d18eb11f.jpg', '', '2025-01-14 13:56:40');
+(9, 1, 'image_1_678e79db76872.jpg', '', '2025-01-20 16:29:15');
 
 -- --------------------------------------------------------
 
@@ -135,21 +130,14 @@ INSERT INTO `users` (`user_id`, `username`, `first_name`, `last_name`, `email`, 
 -- Indexes for table `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`comment_id`),
-  ADD KEY `postId` (`postId`),
-  ADD KEY `userId` (`userId`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userId` (`userId`),
+  ADD KEY `postId` (`postId`);
 
 --
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
-  ADD PRIMARY KEY (`post_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indexes for table `status`
---
-ALTER TABLE `status`
   ADD PRIMARY KEY (`post_id`),
   ADD KEY `userId` (`userId`);
 
@@ -178,25 +166,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `status`
---
-ALTER TABLE `status`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `story_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `story_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -212,20 +194,14 @@ ALTER TABLE `users`
 -- Constraints for table `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`postId`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `posts` (`post_id`);
 
 --
 -- Constraints for table `posts`
 --
 ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `status`
---
-ALTER TABLE `status`
-  ADD CONSTRAINT `status_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `stories`

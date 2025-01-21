@@ -310,29 +310,11 @@ if (!isset($_SESSION['userid'])){
                         </div>
                         <?php
                              // <!-- tab user basic info -->
-                             function timeAgo($created_at) {
-                                $created = new DateTime($created_at);
-                                $now = new DateTime();
-                                $interval = $created->diff($now);
-                            
-                                if ($interval->y > 0) {
-                                    return $interval->y == 1 ? "a year ago" : "{$interval->y} years ago";
-                                } elseif ($interval->m > 0) {
-                                    return $interval->m == 1 ? "a month ago" : "{$interval->m} months ago";
-                                } elseif ($interval->d > 0) {
-                                    return $interval->d == 1 ? "yesterday" : "{$interval->d} days ago";
-                                } elseif ($interval->h > 0) {
-                                    return $interval->h == 1 ? "an hour ago" : "{$interval->h} hours ago";
-                                } elseif ($interval->i > 0) {
-                                    return $interval->i == 1 ? "a minute ago" : "{$interval->i} minutes ago";
-                                } else {
-                                    return $interval->s <= 5 ? "just now" : "{$interval->s} seconds ago";
-                                }
-                            }
+         
 
                              $usrid = $_SESSION['userid'];
                              $userquery =  "SELECT `users`.`profile_picture` FROM `users` WHERE `user_id` = $usrid";
-                             $query = "SELECT `status`.*, `comments`.*, `users`.`user_id` AS `status_user_id`, `users`.`username` AS `status_username`, `users`.`profile_picture` AS `status_profile_picture`, `comment_users`.`user_id` AS `comment_user_id`, `comment_users`.`username` AS `comment_username`, `comment_users`.`profile_picture` AS `comment_profile_picture`, TIMESTAMPDIFF(HOUR, `status`.`created_at`, NOW()) AS `time_post`, COUNT(`comments`.`comment_id`) AS `total_comments` FROM `status` JOIN `users` ON `status`.`userId` = `users`.`user_id` LEFT JOIN `comments` ON `comments`.`postId` = `status`.`post_id` LEFT JOIN `users` AS `comment_users` ON `comments`.`userId` = `comment_users`.`user_id` GROUP BY `status`.`post_id` ORDER BY `status`.`created_at` DESC";
+                             $query = "SELECT `posts`.*, `comments`.*, `users`.`user_id` AS `status_user_id`, `users`.`username` AS `status_username`, `users`.`profile_picture` AS `status_profile_picture`, `comment_users`.`user_id` AS `comment_user_id`, `comment_users`.`username` AS `comment_username`, `comment_users`.`profile_picture` AS `comment_profile_picture`, TIMESTAMPDIFF(SECOND, `posts`.`created_at`, NOW()) AS `time_post`, COUNT(`comments`.`id`) AS `total_comments` FROM `posts` JOIN `users` ON `posts`.`userId` = `users`.`user_id` LEFT JOIN `comments` ON `comments`.`postId` = `posts`.`post_id` LEFT JOIN `users` AS `comment_users` ON `comments`.`userId` = `comment_users`.`user_id` GROUP BY `posts`.`post_id` ORDER BY `posts`.`created_at` DESC";
 
                              $select_user = mysqli_query($conn, $query);
 
@@ -348,19 +330,26 @@ if (!isset($_SESSION['userid'])){
                              foreach ($rows as $row) {
                                 $post_id = $row['post_id'];
                                  $caption = $row['caption'];
-                                 $comment = $row['comment'];
+                                 $comment = $row['caption'];
                                  $total_comments = $row['total_comments'];
                                  $comment_profile = $row['comment_profile_picture'];
                                  $username = $row['status_username'];
-                                 $created_at = $row['created_at'];
+                                 $created_at = $row['time_post'];
                                  $picture = $row['image_path'];
                                  $profile_picture = $row['status_profile_picture'];
                                  $comment_name = $row['comment_username'];
-                                 $time_ago = timeAgo($created_at); 
-
-                                     // Convert created_at to DateTime object
-
-                                    
+                             
+                                 $time_since_post = '';
+                                 if ($created_at < 60) {
+                                     $time_since_post = $created_at . ' seconds ago';
+                                 } elseif ($created_at < 3600) {
+                                     $time_since_post = floor($created_at / 60) . ' minutes ago';
+                                 } elseif ($created_at < 86400) {
+                                     $time_since_post = floor($created_at / 3600) . ' hours ago';
+                                 } else {
+                                     $time_since_post = floor($created_at / 86400) . ' days ago';
+                                 }
+                                        // Convert created_at to DateTime object
                                     
        
                         echo"
@@ -372,7 +361,7 @@ if (!isset($_SESSION['userid'])){
                             <a href='timeline.html'> <img src='$profile_picture' alt='' class='w-9 h-9 rounded-full'> </a>  
                             <div class='flex-1'>
                                 <a href='timeline.html'> <h4 class='text-black dark:text-white'> $username </h4> </a>  
-                                <div class='text-xs text-gray-500 dark:text-white/80'>  {$time_ago}</div>
+                                <div class='text-xs text-gray-500 dark:text-white/80'> $time_since_post </div>
                             </div>
 
                             <div class='-mr-1'>
