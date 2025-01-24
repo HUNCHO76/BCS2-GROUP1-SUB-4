@@ -110,7 +110,7 @@
                         <div class="absolute bottom-0 w-full uk-tr ansition-slide-bottom-small z-10">
                             <div class="max-w-xl w-full mx-auto pb-32 px-5 z-30 relative"
                                 uk-scrollspy="target: > *; cls: uk-animation-scale-up; delay: 100 ;repeat: true">
-                                <img class="w-12" src="assets/images/logo-icon.png" alt="Socialite html template">
+                                <img class="w-12" src="assets/images/logo2.png" alt="Socialite html template">
                                 <h4 class="!text-white text-2xl font-semibold mt-7" uk-slideshow-parallax="y: 600,0,0">
                                     Connect With Friends </h4>
                                 <p class="!text-white text-lg mt-7 leading-8" uk-slideshow-parallax="y: 800,0,0;"> This
@@ -126,7 +126,7 @@
                         <div class="absolute bottom-0 w-full uk-tr ansition-slide-bottom-small z-10">
                             <div class="max-w-xl w-full mx-auto pb-32 px-5 z-30 relative"
                                 uk-scrollspy="target: > *; cls: uk-animation-scale-up; delay: 100 ;repeat: true">
-                                <img class="w-12" src="assets/images/logo-icon.png" alt="Socialite html template">
+                                <img class="w-12" src="assets/images/logo2.png" alt="Socialite html template">
                                 <h4 class="!text-white text-2xl font-semibold mt-7" uk-slideshow-parallax="y: 800,0,0">
                                     Connect With Friends </h4>
                                 <p class="!text-white text-lg mt-7 leading-8" uk-slideshow-parallax="y: 800,0,0;"> This
@@ -164,22 +164,22 @@
 
     <!-- Dark mode -->
     <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
-            '(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-    } else {
-        document.documentElement.classList.remove('dark')
-    }
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
 
-    // Whenever the user explicitly chooses light mode
-    localStorage.theme = 'light'
+        // Whenever the user explicitly chooses light mode
+        localStorage.theme = 'light'
 
-    // Whenever the user explicitly chooses dark mode
-    localStorage.theme = 'dark'
+        // Whenever the user explicitly chooses dark mode
+        localStorage.theme = 'dark'
 
-    // Whenever the user explicitly chooses to respect the OS preference
-    localStorage.removeItem('theme')
+        // Whenever the user explicitly chooses to respect the OS preference
+        localStorage.removeItem('theme')
     </script>
 
 </body>
