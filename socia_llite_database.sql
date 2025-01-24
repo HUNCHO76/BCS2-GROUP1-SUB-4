@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2025 at 12:53 PM
+-- Generation Time: Jan 24, 2025 at 08:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,14 +35,43 @@ CREATE TABLE `comments` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `comments`
+-- Table structure for table `follows`
 --
 
-INSERT INTO `comments` (`id`, `postId`, `userId`, `caption`, `created_at`) VALUES
-(1, 9, 1, 'tttt', '2025-01-20 15:11:28'),
-(2, 8, 1, 'hello', '2025-01-20 15:13:05'),
-(3, 8, 1, 'hello', '2025-01-20 15:13:30');
+CREATE TABLE `follows` (
+  `id` int(11) NOT NULL,
+  `follower_id` int(11) NOT NULL,
+  `followed_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `id` int(11) NOT NULL,
+  `like_user_id` int(11) NOT NULL,
+  `like_post_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `likes`
+--
+
+INSERT INTO `likes` (`id`, `like_user_id`, `like_post_id`, `created_at`) VALUES
+(2, 1, 11, '2025-01-21 16:49:45'),
+(3, 1, 11, '2025-01-21 16:53:45'),
+(4, 1, 11, '2025-01-21 17:08:07'),
+(5, 1, 12, '2025-01-21 17:08:25'),
+(6, 1, 12, '2025-01-22 11:43:18'),
+(7, 1, 12, '2025-01-22 11:43:24');
 
 -- --------------------------------------------------------
 
@@ -63,11 +92,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`post_id`, `userId`, `caption`, `image_path`, `created_at`) VALUES
-(6, 1, '', 'image_1_678a58413ad16.jpg', '2025-01-17 13:16:49'),
-(7, 1, '', 'image_1_678e305a6cb23.jpg', '2025-01-20 11:15:38'),
-(8, 1, '', 'image_1_678e5d56ad73b.jpg', '2025-01-20 14:27:34'),
-(9, 1, '', 'image_1_678e66276cd2e.jpg', '2025-01-20 15:05:11'),
-(10, 1, '', 'image_1_678f88c0eee85.jpg', '2025-01-21 11:45:05');
+(11, 1, '', 'image_1_678fd017d4808.jpg', '2025-01-21 16:49:28'),
+(12, 1, '', 'image_1_678fd483a3afe.jpg', '2025-01-21 17:08:19');
 
 -- --------------------------------------------------------
 
@@ -89,7 +115,8 @@ CREATE TABLE `stories` (
 --
 
 INSERT INTO `stories` (`story_id`, `user_id`, `image_path`, `caption`, `created_at`) VALUES
-(9, 1, 'image_1_678e79db76872.jpg', '', '2025-01-20 16:29:15');
+(9, 1, 'image_1_678e79db76872.jpg', '', '2025-01-20 16:29:15'),
+(10, 1, 'image_1_6790d52707756.jpg', '', '2025-01-22 11:23:19');
 
 -- --------------------------------------------------------
 
@@ -135,6 +162,22 @@ ALTER TABLE `comments`
   ADD KEY `postId` (`postId`);
 
 --
+-- Indexes for table `follows`
+--
+ALTER TABLE `follows`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `follower_id` (`follower_id`),
+  ADD KEY `followed_id` (`followed_id`);
+
+--
+-- Indexes for table `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `like_user_id` (`like_user_id`),
+  ADD KEY `like_post_id` (`like_post_id`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
@@ -166,19 +209,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `follows`
+--
+ALTER TABLE `follows`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `story_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `story_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -196,6 +251,20 @@ ALTER TABLE `users`
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `posts` (`post_id`);
+
+--
+-- Constraints for table `follows`
+--
+ALTER TABLE `follows`
+  ADD CONSTRAINT `follows_ibfk_1` FOREIGN KEY (`follower_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `follows_ibfk_2` FOREIGN KEY (`followed_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `likes`
+--
+ALTER TABLE `likes`
+  ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`like_user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`like_post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `posts`
