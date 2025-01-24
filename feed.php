@@ -314,7 +314,7 @@ if (!isset($_SESSION['userid'])){
 
                              $usrid = $_SESSION['userid'];
                              $userquery =  "SELECT `users`.`profile_picture` FROM `users` WHERE `user_id` = $usrid";
-                             $query = "SELECT `posts`.*, `comments`.*, `users`.`user_id` AS `status_user_id`, `users`.`username` AS `status_username`, `users`.`profile_picture` AS `status_profile_picture`, `comment_users`.`user_id` AS `comment_user_id`, `comment_users`.`username` AS `comment_username`, `comment_users`.`profile_picture` AS `comment_profile_picture`, TIMESTAMPDIFF(SECOND, `posts`.`created_at`, NOW()) AS `time_post`, COUNT(`comments`.`id`) AS `total_comments` FROM `posts` JOIN `users` ON `posts`.`userId` = `users`.`user_id` LEFT JOIN `comments` ON `comments`.`postId` = `posts`.`post_id` LEFT JOIN `users` AS `comment_users` ON `comments`.`userId` = `comment_users`.`user_id` GROUP BY `posts`.`post_id` ORDER BY `posts`.`created_at` DESC";
+                             $query = "SELECT `posts`.*, `comments`.*,`users`.`user_id` AS `status_user_id`, `users`.`username` AS `post_username`, `users`.`profile_picture` AS `post_profile_picture`, `comment_users`.`user_id` AS `comment_user_id`, `comment_users`.`username` AS `comment_username`, `comment_users`.`profile_picture` AS `comment_profile_picture`, TIMESTAMPDIFF(SECOND, `posts`.`created_at`, NOW()) AS `time_post`, COUNT(`comments`.`id`) AS `total_comments`, COUNT(`likes`.`id`) AS total_likes FROM `posts` JOIN `users` ON `posts`.`userId` = `users`.`user_id` LEFT JOIN likes ON `posts`.`post_id` = `likes`.`like_post_id` LEFT JOIN `comments` ON `comments`.`postId` = `posts`.`post_id` LEFT JOIN `users` AS `comment_users` ON `comments`.`userId` = `comment_users`.`user_id` GROUP BY `posts`.`post_id` ORDER BY `posts`.`created_at` DESC";
 
                              $select_user = mysqli_query($conn, $query);
 
@@ -330,13 +330,14 @@ if (!isset($_SESSION['userid'])){
                              foreach ($rows as $row) {
                                 $post_id = $row['post_id'];
                                  $caption = $row['caption'];
+                                 $total_likes = $row['total_likes'];
                                  $comment = $row['caption'];
                                  $total_comments = $row['total_comments'];
                                  $comment_profile = $row['comment_profile_picture'];
-                                 $username = $row['status_username'];
+                                 $username = $row['post_username'];
                                  $created_at = $row['time_post'];
                                  $picture = $row['image_path'];
-                                 $profile_picture = $row['status_profile_picture'];
+                                 $profile_picture = $row['post_profile_picture'];
                                  $comment_name = $row['comment_username'];
                              
                                  $time_since_post = '';
@@ -388,25 +389,27 @@ if (!isset($_SESSION['userid'])){
 
                         <!-- post icons -->
                         <div class='sm:p-4 p-2.5 flex items-center gap-4 text-xs font-semibold'>
+                        <form action = 'include/likes.inc.php?post=$post_id&user=$usrid' method='POST'>
                             <div>
                                 <div class='flex items-center gap-2.5'>
                                     <button type='button' class='button-icon text-red-500 bg-red-100 dark:bg-slate-700'> <ion-icon class='text-lg' name='heart'></ion-icon> </button>
-                                    <a href='#'>1,30</a>
+                                    <a href='#'>$total_likes</a>
                                 </div>
                                 <div class='p-1 px-2 bg-white rounded-full drop-shadow-md w-[212px] dark:bg-slate-700 text-2xl'
                                         uk-drop='offset:10;pos: top-left; animate-out: true; animation: uk-animation-scale-up uk-transform-origin-bottom-left'> 
                                     
                                     <div class='flex gap-2' uk-scrollspy='target: > button; cls: uk-animation-scale-up; delay: 100 ;repeat: true'>
-                                        <button type='button' class='text-red-600 hover:scale-125 duration-300'> <span> 👍 </span></button>
-                                        <button type='button' class='text-red-600 hover:scale-125 duration-300'> <span> ❤️ </span></button>
-                                        <button type='button' class='text-red-600 hover:scale-125 duration-300'> <span> 😂 </span></button>
-                                        <button type='button' class='text-red-600 hover:scale-125 duration-300'> <span> 😯 </span></button>
-                                        <button type='button' class='text-red-600 hover:scale-125 duration-300'> <span> 😢 </span></button>
+                                        <button type='submit' name= 'submit_likes' class='text-red-600 hover:scale-125 duration-300'> <span> 👍 </span></button>
+                                        <button type='submit' name= 'submit_likes' class='text-red-600 hover:scale-125 duration-300'> <span> ❤️ </span></button>
+                                        <button type='submit' name= 'submit_likes' class='text-red-600 hover:scale-125 duration-300'> <span> 😂 </span></button>
+                                        <button type='submit' name= 'submit_likes' class='text-red-600 hover:scale-125 duration-300'> <span> 😯 </span></button>
+                                        <button type='submit' name= 'submit_likes' class='text-red-600 hover:scale-125 duration-300'> <span> 😢 </span></button>
                                     </div>
                                     
                                     <div class='w-2.5 h-2.5 absolute -bottom-1 left-3 bg-white rotate-45 hidden'></div>
                                 </div>
                             </div>
+                        </form>   
                             <div class='flex items-center gap-3'>
                                 <button type='button' class='button-icon bg-slate-200/70 dark:bg-slate-700'> <ion-icon class='text-lg' name='chatbubble-ellipses'></ion-icon> </button>
                                 <span>$total_comments</span>
