@@ -53,12 +53,11 @@ if (!isset($_SESSION['userid'])){
                         </button>
                         <div id="logo">
                             <a href="feed.html">
-                                <img src="assets/images/logo.png" alt="" class="w-28 md:block hidden dark:!hidden">
-                                <img src="assets/images/logo-light.png" alt="" class="dark:md:block hidden w-1/2">
-                                <img src="assets/images/logo-mobile.png" class="hidden max-md:block w-20 dark:!hidden"
+                                <img src="assets/images/facebook.svg" alt="" class="w-28 md:block hidden dark:!hidden">
+                                <img src="assets/images/facebook.svg" alt="" class="dark:md:block hidden w-1/2">
+                                <img src="assets/images/facebook.svg" class="hidden max-md:block w-20 dark:!hidden"
                                     alt="">
-                                <img src="assets/images/logo-mobile-light.png" class="hidden dark:max-md:block w-20"
-                                    alt="">
+                                <img src="assets/images/facebook.svg" class="hidden dark:max-md:block w-20" alt="">
                             </a>
                         </div>
 

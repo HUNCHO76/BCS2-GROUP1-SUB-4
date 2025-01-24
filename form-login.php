@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-    <link href="assets/images/favicon.png" rel="icon" type="image/png">
+    <link href="assets/images/facebook.svg" rel="icon" type="image/png">
 
     <!-- title and description-->
     <title>Socialite</title>
@@ -34,15 +34,14 @@
                 uk-scrollspy="target: > *; cls: uk-animation-scale-up; delay: 100 ;repeat: true">
 
                 <!-- logo image-->
-                <a href="#"> <img src="assets/images/logo.png" class="w-28 absolute top-10 left-10 dark:hidden"
+                <a href="#"> <img src="assets/images/facebook.svg" class="w-28 absolute top-10 left-10 dark:hidden"
                         alt=""></a>
-                <a href="#"> <img src="assets/images/logo-light.png"
+                <a href="#"> <img src="assets/images/facebook.svg"
                         class="w-28 absolute top-10 left-10 hidden dark:!block" alt=""></a>
 
                 <!-- logo icon optional -->
                 <div class="hidden">
-                    <img class="w-12" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&amp;shade=600"
-                        alt="Socialite html template">
+                    <img class="w-12" src="assets/images/facebook.svg" alt="Socialite html template">
                 </div>
 
                 <!-- title -->
@@ -105,28 +104,28 @@
 
                 <ul class="uk-slideshow-items w-full h-full">
                     <li class="w-full">
-                        <img src="assets/images/post/img-3.jpg" alt=""
+                        <img src="assets/images/login/friends.jpg" alt=""
                             class="w-full h-full object-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center-left">
                         <div class="absolute bottom-0 w-full uk-tr ansition-slide-bottom-small z-10">
                             <div class="max-w-xl w-full mx-auto pb-32 px-5 z-30 relative"
                                 uk-scrollspy="target: > *; cls: uk-animation-scale-up; delay: 100 ;repeat: true">
-                                <img class="w-12" src="assets/images/logo-icon.png" alt="Socialite html template">
+                                <img class="w-12" src="assets/images/logo2.png" alt="Socialite html template">
                                 <h4 class="!text-white text-2xl font-semibold mt-7" uk-slideshow-parallax="y: 600,0,0">
                                     Connect With Friends </h4>
                                 <p class="!text-white text-lg mt-7 leading-8" uk-slideshow-parallax="y: 800,0,0;"> This
                                     phrase is more casual and playful. It suggests that you are keeping your friends
-                                    updated on what’s happening in your life.</p>
+                                    updated on what's happening in your life.</p>
                             </div>
                         </div>
                         <div class="w-full h-96 bg-gradient-to-t from-black absolute bottom-0 left-0"></div>
                     </li>
                     <li class="w-full">
-                        <img src="assets/images/post/img-2.jpg" alt=""
+                        <img src="assets/images/login/friends-1.jpg" alt=""
                             class="w-full h-full object-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center-left">
                         <div class="absolute bottom-0 w-full uk-tr ansition-slide-bottom-small z-10">
                             <div class="max-w-xl w-full mx-auto pb-32 px-5 z-30 relative"
                                 uk-scrollspy="target: > *; cls: uk-animation-scale-up; delay: 100 ;repeat: true">
-                                <img class="w-12" src="assets/images/logo-icon.png" alt="Socialite html template">
+                                <img class="w-12" src="assets/images/logo2.png" alt="Socialite html template">
                                 <h4 class="!text-white text-2xl font-semibold mt-7" uk-slideshow-parallax="y: 800,0,0">
                                     Connect With Friends </h4>
                                 <p class="!text-white text-lg mt-7 leading-8" uk-slideshow-parallax="y: 800,0,0;"> This
@@ -164,22 +163,22 @@
 
     <!-- Dark mode -->
     <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
-            '(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-    } else {
-        document.documentElement.classList.remove('dark')
-    }
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
 
-    // Whenever the user explicitly chooses light mode
-    localStorage.theme = 'light'
+        // Whenever the user explicitly chooses light mode
+        localStorage.theme = 'light'
 
-    // Whenever the user explicitly chooses dark mode
-    localStorage.theme = 'dark'
+        // Whenever the user explicitly chooses dark mode
+        localStorage.theme = 'dark'
 
-    // Whenever the user explicitly chooses to respect the OS preference
-    localStorage.removeItem('theme')
+        // Whenever the user explicitly chooses to respect the OS preference
+        localStorage.removeItem('theme')
     </script>
 
 </body>
