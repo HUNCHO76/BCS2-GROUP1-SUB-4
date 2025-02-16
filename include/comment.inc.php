@@ -7,7 +7,7 @@ if (isset($_POST['btn-comment'])) {
     // Retrieve the comment from the form
     $comment = trim($_POST['comment']); // Sanitizing input
     $user_id = $_GET['id']; // Assuming the user ID is stored in the session
-    $post_id = $_GET['post']; // Assuming post ID is passed via POST or modify as needed
+    $post_id = $_GET['post']; 
 
     // Validate input
     if (empty($comment)) {

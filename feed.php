@@ -53,7 +53,7 @@ if (!isset($_SESSION['userid'])){
                         </button>
                         <div id="logo">
                             <a href="feed.html">
-                                <img src="assets/images/facebook.svg" alt="" class="w-28 md:block hidden dark:!hidden">
+                                <img src="assets/images/facebook.svg" alt="" class="w-12 md:block hidden dark:!hidden">
                                 <img src="assets/images/facebook.svg" alt="" class="dark:md:block hidden w-1/2">
                                 <img src="assets/images/facebook.svg" class="hidden max-md:block w-20 dark:!hidden"
                                     alt="">
@@ -173,6 +173,12 @@ if (!isset($_SESSION['userid'])){
                                     <img src="assets/images/icons/home.png" alt="feeds" class="w-6">
                                     <span> Feed </span>
                                 </a>
+                            </li>
+                            <li class="hidden">
+                                <!-- Toast Container -->
+                                <div id="toast" class="fixed bottom-4 right-4 p-4 bg-gray-800 text-white rounded-lg shadow-lg w-6">
+                                    <span id="toast-message"></span>
+                                </div>
                             </li>
                         </ul>
                     </nav>
@@ -1183,6 +1189,42 @@ if (!isset($_SESSION['userid'])){
     <!-- Ion icon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+    // Function to show toast message
+    function showToast(message, isError = false) {
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toast-message');
+
+        // Set the message and style
+        toastMessage.textContent = message;
+        toast.classList.remove('hidden');
+
+        // Add error styling if it's an error
+        if (isError) {
+            toast.classList.add('bg-red-500');
+        } else {
+            toast.classList.add('bg-green-500');
+        }
+
+        // Hide the toast after 3 seconds
+        setTimeout(() => {
+            toast.classList.add('hidden');
+            toast.classList.remove('bg-red-500', 'bg-green-500'); // Reset styles
+        }, 3000);
+    }
+
+    // Check URL for query parameters and show toast
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.has('error') && urlParams.get('error') === 'already_liked') {
+            showToast('You have already liked this post!', true);
+        } else if (urlParams.has('like_sent')) {
+            showToast('Post liked successfully!');
+        }
+    });
+</script>
 </body>
 
 </html>

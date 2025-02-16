@@ -159,7 +159,7 @@
                         <div class="w-full h-96 bg-gradient-to-t from-black absolute bottom-0 left-0"></div>
                     </li>
                     <li class="w-full">
-                        <img src="assets/images/login/friends-1.jpg" alt=""
+                        <img src="assets/images/login/friends-2.jpg" alt=""
                             class="w-full h-full object-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center-left">
                         <div class="absolute bottom-0 w-full uk-tr ansition-slide-bottom-small z-10">
                             <div class="max-w-xl w-full mx-auto pb-32 px-5 z-30 relative"
